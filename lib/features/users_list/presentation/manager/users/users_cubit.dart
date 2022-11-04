@@ -15,15 +15,26 @@ class UsersCubit extends Cubit<UsersState> {
       : _getDataUsersUseCase = getDataUsersUseCase,
         super(const UsersState.initial());
 
+  List<UserModel> allUsers = [];
+  List<UserModel> filterUsers = [];
+
   Future<void> getAllUsers() async {
     try {
       emit(const UsersState.loading());
-      final list = await _getDataUsersUseCase(null);
-      emit(UsersState.allUsers(list));
+      allUsers = await _getDataUsersUseCase(null);
+      emit(UsersState.allUsers(allUsers));
     } on DioError catch (e) {
       emit(UsersState.error(e.error.toString()));
     } catch (e) {
       emit(UsersState.error(e.toString()));
     }
+  }
+
+  void searchData(String value) {
+    filterUsers = allUsers
+        .where((u) => u.name.toLowerCase().contains(value.toLowerCase()))
+        .toList();
+
+    emit(UsersState.allUsers(filterUsers));
   }
 }
