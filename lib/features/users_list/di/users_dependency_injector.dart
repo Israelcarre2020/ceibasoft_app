@@ -4,6 +4,7 @@ import '../../../core/http/data/http_proxy_impl.dart';
 import '../data/data_source/get_data_users_remote_data_source.dart';
 import '../data/repositories/get_data_users_impl_repository.dart';
 import '../domain/repositories/get_data_users_repository_contract.dart';
+import '../domain/use_cases/get_all_post_use_case.dart';
 import '../domain/use_cases/get_users_use_case.dart';
 import '../presentation/manager/users/users_cubit.dart';
 
@@ -16,7 +17,9 @@ abstract class UsersDependencyInjector {
     DIManager.getIt.registerSingleton(HttpImpl());
 
     DIManager.getIt.registerSingleton(GetDataUsersRemoteDatasource(
-        DIManager.getIt<HttpImpl>(), RemoteApiConstants.baseUrl));
+        DIManager.getIt<HttpImpl>(),
+        RemoteApiConstants.getAllUsersEndpoint,
+        RemoteApiConstants.getAllPostsEndpoint));
 
     DIManager.getIt.registerSingleton<GetDataUsersContract>(
       GetDataUsersImplRepository(
@@ -30,9 +33,16 @@ abstract class UsersDependencyInjector {
       ),
     );
 
+    DIManager.getIt.registerSingleton(
+      GetAllPostsUseCase(
+        DIManager.getIt<GetDataUsersContract>(),
+      ),
+    );
+
     DIManager.getIt.registerFactory(
       () => UsersCubit(
         getDataUsersUseCase: DIManager.getIt<GetDataUsersUseCase>(),
+        getAllPostsUseCase: DIManager.getIt<GetAllPostsUseCase>(),
       ),
     );
 

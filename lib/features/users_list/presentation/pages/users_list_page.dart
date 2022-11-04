@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/di_manager/di_manager.dart';
 import '../../domain/entities/user_model.dart';
+import '../../domain/use_cases/get_all_post_use_case.dart';
 import '../../domain/use_cases/get_users_use_case.dart';
 import '../manager/users/users_cubit.dart';
 import '../widgets/custom_user_card.dart';
@@ -15,14 +16,27 @@ class UsersListPage extends StatelessWidget {
     return BlocProvider(
       create: (context) => UsersCubit(
         getDataUsersUseCase: DIManager.getIt<GetDataUsersUseCase>(),
+        getAllPostsUseCase: DIManager.getIt<GetAllPostsUseCase>(),
       ),
       child: const UsersListPageView(),
     );
   }
 }
 
-class UsersListPageView extends StatelessWidget {
+class UsersListPageView extends StatefulWidget {
   const UsersListPageView({super.key});
+
+  @override
+  State<UsersListPageView> createState() => _UsersListPageViewState();
+}
+
+class _UsersListPageViewState extends State<UsersListPageView> {
+  @override
+  void initState() {
+    context.read<UsersCubit>().getAllUsers();
+    context.read<UsersCubit>().getAllPosts();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

@@ -9,12 +9,12 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'post_model.freezed.dart';
 part 'post_model.g.dart';
 
-List<PostModel> postModelFromJson(String str) =>
-    // ignore: unnecessary_lambdas
-    List<PostModel>.from(json.decode(str).map((x) => PostModel.fromJson(x)));
+PostModel postModelFromJson(String str) => PostModel.fromJson(json.decode(str));
 
-String postModelToJson(List<PostModel> data) =>
-    json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+String postModelToJson(PostModel data) => json.encode(data.toJson());
+List<PostModel> getPostsListFromJson(List<dynamic> data) =>
+    // ignore: unnecessary_lambdas
+    List<PostModel>.from(data.map((x) => PostModel.fromJson(x)));
 
 @freezed
 abstract class PostModel with _$PostModel {
