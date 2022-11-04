@@ -1,10 +1,10 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/di_manager/di_manager.dart';
 import '../../domain/use_cases/get_users_use_case.dart';
 import '../manager/users/users_cubit.dart';
+import '../widgets/custom_user_card.dart';
 
 class UsersListPage extends StatelessWidget {
   const UsersListPage({super.key});
@@ -33,7 +33,6 @@ class UsersListPageView extends StatelessWidget {
         body: BlocConsumer<UsersCubit, UsersState>(listener: (_, state) {
           state.when(
               allUsers: (usersList) {},
-              success: (usersList) {},
               initial: () {},
               loading: () {},
               error: (error) {
@@ -52,16 +51,11 @@ class UsersListPageView extends StatelessWidget {
             return ListView.builder(
                 itemCount: usersList.length,
                 itemBuilder: (context, index) {
-                  return ListTile(
-                    title: Text(usersList[index].name),
-                  );
-                });
-          }, success: (usersList) {
-            return ListView.builder(
-                itemCount: usersList.length,
-                itemBuilder: (context, index) {
-                  return ListTile(
-                    title: Text(usersList[index].name),
+                  return CustomUserCard(
+                    user: usersList[index],
+                    onPress: (userId) {
+                      print(userId);
+                    },
                   );
                 });
           }, initial: () {

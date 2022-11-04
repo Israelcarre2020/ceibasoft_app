@@ -19,7 +19,7 @@ class UsersCubit extends Cubit<UsersState> {
     try {
       emit(const UsersState.loading());
       final list = await _getDataUsersUseCase(null);
-      emit(UsersState.success(list));
+      emit(UsersState.allUsers(list));
     } on DioError catch (e) {
       emit(UsersState.error(e.error.toString()));
     } catch (e) {

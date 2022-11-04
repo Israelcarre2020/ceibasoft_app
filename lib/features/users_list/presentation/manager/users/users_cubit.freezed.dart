@@ -21,7 +21,6 @@ mixin _$UsersState {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<UserModel> usersList) allUsers,
-    required TResult Function(List<UserModel> usersList) success,
     required TResult Function(String message) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -30,7 +29,6 @@ mixin _$UsersState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<UserModel> usersList)? allUsers,
-    TResult? Function(List<UserModel> usersList)? success,
     TResult? Function(String message)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -39,7 +37,6 @@ mixin _$UsersState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<UserModel> usersList)? allUsers,
-    TResult Function(List<UserModel> usersList)? success,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) =>
@@ -49,7 +46,6 @@ mixin _$UsersState {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(AllUsers value) allUsers,
-    required TResult Function(_Success value) success,
     required TResult Function(_Error value) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -58,7 +54,6 @@ mixin _$UsersState {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(AllUsers value)? allUsers,
-    TResult? Function(_Success value)? success,
     TResult? Function(_Error value)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -67,7 +62,6 @@ mixin _$UsersState {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(AllUsers value)? allUsers,
-    TResult Function(_Success value)? success,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) =>
@@ -132,7 +126,6 @@ class _$_Initial implements _Initial {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<UserModel> usersList) allUsers,
-    required TResult Function(List<UserModel> usersList) success,
     required TResult Function(String message) error,
   }) {
     return initial();
@@ -144,7 +137,6 @@ class _$_Initial implements _Initial {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<UserModel> usersList)? allUsers,
-    TResult? Function(List<UserModel> usersList)? success,
     TResult? Function(String message)? error,
   }) {
     return initial?.call();
@@ -156,7 +148,6 @@ class _$_Initial implements _Initial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<UserModel> usersList)? allUsers,
-    TResult Function(List<UserModel> usersList)? success,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -172,7 +163,6 @@ class _$_Initial implements _Initial {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(AllUsers value) allUsers,
-    required TResult Function(_Success value) success,
     required TResult Function(_Error value) error,
   }) {
     return initial(this);
@@ -184,7 +174,6 @@ class _$_Initial implements _Initial {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(AllUsers value)? allUsers,
-    TResult? Function(_Success value)? success,
     TResult? Function(_Error value)? error,
   }) {
     return initial?.call(this);
@@ -196,7 +185,6 @@ class _$_Initial implements _Initial {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(AllUsers value)? allUsers,
-    TResult Function(_Success value)? success,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
@@ -251,7 +239,6 @@ class _$_Loading implements _Loading {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<UserModel> usersList) allUsers,
-    required TResult Function(List<UserModel> usersList) success,
     required TResult Function(String message) error,
   }) {
     return loading();
@@ -263,7 +250,6 @@ class _$_Loading implements _Loading {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<UserModel> usersList)? allUsers,
-    TResult? Function(List<UserModel> usersList)? success,
     TResult? Function(String message)? error,
   }) {
     return loading?.call();
@@ -275,7 +261,6 @@ class _$_Loading implements _Loading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<UserModel> usersList)? allUsers,
-    TResult Function(List<UserModel> usersList)? success,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -291,7 +276,6 @@ class _$_Loading implements _Loading {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(AllUsers value) allUsers,
-    required TResult Function(_Success value) success,
     required TResult Function(_Error value) error,
   }) {
     return loading(this);
@@ -303,7 +287,6 @@ class _$_Loading implements _Loading {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(AllUsers value)? allUsers,
-    TResult? Function(_Success value)? success,
     TResult? Function(_Error value)? error,
   }) {
     return loading?.call(this);
@@ -315,7 +298,6 @@ class _$_Loading implements _Loading {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(AllUsers value)? allUsers,
-    TResult Function(_Success value)? success,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
@@ -402,7 +384,6 @@ class _$AllUsers implements AllUsers {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<UserModel> usersList) allUsers,
-    required TResult Function(List<UserModel> usersList) success,
     required TResult Function(String message) error,
   }) {
     return allUsers(usersList);
@@ -414,7 +395,6 @@ class _$AllUsers implements AllUsers {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<UserModel> usersList)? allUsers,
-    TResult? Function(List<UserModel> usersList)? success,
     TResult? Function(String message)? error,
   }) {
     return allUsers?.call(usersList);
@@ -426,7 +406,6 @@ class _$AllUsers implements AllUsers {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<UserModel> usersList)? allUsers,
-    TResult Function(List<UserModel> usersList)? success,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -442,7 +421,6 @@ class _$AllUsers implements AllUsers {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(AllUsers value) allUsers,
-    required TResult Function(_Success value) success,
     required TResult Function(_Error value) error,
   }) {
     return allUsers(this);
@@ -454,7 +432,6 @@ class _$AllUsers implements AllUsers {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(AllUsers value)? allUsers,
-    TResult? Function(_Success value)? success,
     TResult? Function(_Error value)? error,
   }) {
     return allUsers?.call(this);
@@ -466,7 +443,6 @@ class _$AllUsers implements AllUsers {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(AllUsers value)? allUsers,
-    TResult Function(_Success value)? success,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
@@ -483,162 +459,6 @@ abstract class AllUsers implements UsersState {
   List<UserModel> get usersList;
   @JsonKey(ignore: true)
   _$$AllUsersCopyWith<_$AllUsers> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$_SuccessCopyWith<$Res> {
-  factory _$$_SuccessCopyWith(
-          _$_Success value, $Res Function(_$_Success) then) =
-      __$$_SuccessCopyWithImpl<$Res>;
-  @useResult
-  $Res call({List<UserModel> usersList});
-}
-
-/// @nodoc
-class __$$_SuccessCopyWithImpl<$Res>
-    extends _$UsersStateCopyWithImpl<$Res, _$_Success>
-    implements _$$_SuccessCopyWith<$Res> {
-  __$$_SuccessCopyWithImpl(_$_Success _value, $Res Function(_$_Success) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? usersList = null,
-  }) {
-    return _then(_$_Success(
-      null == usersList
-          ? _value._usersList
-          : usersList // ignore: cast_nullable_to_non_nullable
-              as List<UserModel>,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_Success implements _Success {
-  const _$_Success(final List<UserModel> usersList) : _usersList = usersList;
-
-  final List<UserModel> _usersList;
-  @override
-  List<UserModel> get usersList {
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_usersList);
-  }
-
-  @override
-  String toString() {
-    return 'UsersState.success(usersList: $usersList)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_Success &&
-            const DeepCollectionEquality()
-                .equals(other._usersList, _usersList));
-  }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_usersList));
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$_SuccessCopyWith<_$_Success> get copyWith =>
-      __$$_SuccessCopyWithImpl<_$_Success>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() initial,
-    required TResult Function() loading,
-    required TResult Function(List<UserModel> usersList) allUsers,
-    required TResult Function(List<UserModel> usersList) success,
-    required TResult Function(String message) error,
-  }) {
-    return success(usersList);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? initial,
-    TResult? Function()? loading,
-    TResult? Function(List<UserModel> usersList)? allUsers,
-    TResult? Function(List<UserModel> usersList)? success,
-    TResult? Function(String message)? error,
-  }) {
-    return success?.call(usersList);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? initial,
-    TResult Function()? loading,
-    TResult Function(List<UserModel> usersList)? allUsers,
-    TResult Function(List<UserModel> usersList)? success,
-    TResult Function(String message)? error,
-    required TResult orElse(),
-  }) {
-    if (success != null) {
-      return success(usersList);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Initial value) initial,
-    required TResult Function(_Loading value) loading,
-    required TResult Function(AllUsers value) allUsers,
-    required TResult Function(_Success value) success,
-    required TResult Function(_Error value) error,
-  }) {
-    return success(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Initial value)? initial,
-    TResult? Function(_Loading value)? loading,
-    TResult? Function(AllUsers value)? allUsers,
-    TResult? Function(_Success value)? success,
-    TResult? Function(_Error value)? error,
-  }) {
-    return success?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loading value)? loading,
-    TResult Function(AllUsers value)? allUsers,
-    TResult Function(_Success value)? success,
-    TResult Function(_Error value)? error,
-    required TResult orElse(),
-  }) {
-    if (success != null) {
-      return success(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Success implements UsersState {
-  const factory _Success(final List<UserModel> usersList) = _$_Success;
-
-  List<UserModel> get usersList;
-  @JsonKey(ignore: true)
-  _$$_SuccessCopyWith<_$_Success> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -707,7 +527,6 @@ class _$_Error implements _Error {
     required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(List<UserModel> usersList) allUsers,
-    required TResult Function(List<UserModel> usersList) success,
     required TResult Function(String message) error,
   }) {
     return error(message);
@@ -719,7 +538,6 @@ class _$_Error implements _Error {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(List<UserModel> usersList)? allUsers,
-    TResult? Function(List<UserModel> usersList)? success,
     TResult? Function(String message)? error,
   }) {
     return error?.call(message);
@@ -731,7 +549,6 @@ class _$_Error implements _Error {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(List<UserModel> usersList)? allUsers,
-    TResult Function(List<UserModel> usersList)? success,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -747,7 +564,6 @@ class _$_Error implements _Error {
     required TResult Function(_Initial value) initial,
     required TResult Function(_Loading value) loading,
     required TResult Function(AllUsers value) allUsers,
-    required TResult Function(_Success value) success,
     required TResult Function(_Error value) error,
   }) {
     return error(this);
@@ -759,7 +575,6 @@ class _$_Error implements _Error {
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Loading value)? loading,
     TResult? Function(AllUsers value)? allUsers,
-    TResult? Function(_Success value)? success,
     TResult? Function(_Error value)? error,
   }) {
     return error?.call(this);
@@ -771,7 +586,6 @@ class _$_Error implements _Error {
     TResult Function(_Initial value)? initial,
     TResult Function(_Loading value)? loading,
     TResult Function(AllUsers value)? allUsers,
-    TResult Function(_Success value)? success,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {

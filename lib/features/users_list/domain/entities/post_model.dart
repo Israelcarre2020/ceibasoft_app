@@ -10,6 +10,7 @@ part 'post_model.freezed.dart';
 part 'post_model.g.dart';
 
 List<PostModel> postModelFromJson(String str) =>
+    // ignore: unnecessary_lambdas
     List<PostModel>.from(json.decode(str).map((x) => PostModel.fromJson(x)));
 
 String postModelToJson(List<PostModel> data) =>
