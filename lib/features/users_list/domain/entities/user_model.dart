@@ -9,11 +9,13 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'user_model.freezed.dart';
 part 'user_model.g.dart';
 
-List<UserModel> userModelFromJson(String str) =>
-    List<UserModel>.from(json.decode(str).map(UserModel.fromJson));
+UserModel userModelFromJson(String str) => UserModel.fromJson(json.decode(str));
 
-String userModelToJson(List<UserModel> data) =>
-    json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+String userModelToJson(UserModel data) => json.encode(data.toJson());
+
+List<UserModel> getUsersListFromJson(List<dynamic> data) =>
+    // ignore: unnecessary_lambdas
+    List<UserModel>.from(data.map((x) => UserModel.fromJson(x)));
 
 @freezed
 abstract class UserModel with _$UserModel {

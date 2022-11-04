@@ -9,7 +9,10 @@ class GetDataUsersImplRepository implements GetDataUsersContract {
 
   @override
   Future<List<UserModel>> getAllUsers() async {
-    return _getDataUsersRemoteDatasource.getUsers();
-//TODO: EVALUAR EL FUNCIONAMIENTO DE ESTA FUNCIÓN SIN AWAIT
+    try {
+      return _getDataUsersRemoteDatasource.getUsers();
+    } catch (e) {
+      rethrow;
+    }
   }
 }

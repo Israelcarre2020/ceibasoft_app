@@ -7,10 +7,10 @@ import '../domain/repositories/get_data_users_repository_contract.dart';
 import '../domain/use_cases/get_users_use_case.dart';
 import '../presentation/manager/users/users_cubit.dart';
 
-abstract class AuthDependencyInjector {
+abstract class UsersDependencyInjector {
   static bool _alreadyInit = false;
 
-  static void initializeDependencies() {
+  static Future<void> initializeDependencies() async {
     if (_alreadyInit) return;
 
     DIManager.getIt.registerSingleton(HttpImpl());

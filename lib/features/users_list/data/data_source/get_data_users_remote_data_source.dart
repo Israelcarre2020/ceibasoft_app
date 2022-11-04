@@ -1,3 +1,5 @@
+import 'package:dio/dio.dart';
+
 import '../../../../core/http/data/http_proxy_impl.dart';
 import '../../domain/entities/user_model.dart';
 
@@ -9,9 +11,14 @@ class GetDataUsersRemoteDatasource {
 
   Future<List<UserModel>> getUsers() async {
     final http = _httpImpl.instance();
+    Response response;
 
-    final response = await http.get(_baseUrl);
+    try {
+      response = await http.get(_baseUrl);
 
-    return userModelFromJson(response.data);
+      return getUsersListFromJson(response.data);
+    } catch (e) {
+      rethrow;
+    }
   }
 }

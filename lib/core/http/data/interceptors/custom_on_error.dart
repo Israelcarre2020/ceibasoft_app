@@ -29,7 +29,6 @@ Future<DioError> customOnError(DioError dioError) async {
 }
 
 Future<DioError> _customReportError(DioError dioError, respuesta) async {
-  respuesta.error = dioError.error;
   dioError.error = respuesta;
   return dioError;
 }

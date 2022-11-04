@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -14,11 +15,14 @@ class UsersCubit extends Cubit<UsersState> {
       : _getDataUsersUseCase = getDataUsersUseCase,
         super(const UsersState.initial());
 
-  Future<void> getAllUsers(List<UserModel> signUp) async {
+  Future<void> getAllUsers() async {
     try {
-      await _getDataUsersUseCase('');
+      emit(const UsersState.loading());
+      final list = await _getDataUsersUseCase(null);
+      emit(UsersState.success(list));
+    } on DioError catch (e) {
+      emit(UsersState.error(e.error.toString()));
     } catch (e) {
-      //TODO: aJUSTAR CAPTURA DEL ERROR
       emit(UsersState.error(e.toString()));
     }
   }
