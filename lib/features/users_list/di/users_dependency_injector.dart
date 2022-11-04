@@ -1,5 +1,5 @@
 import '../../../core/di_manager/di_manager.dart';
-import '../../../core/http/data/config/remote_api_constants.dart';
+import '../../../core/config/remote_api_constants.dart';
 import '../../../core/http/data/http_proxy_impl.dart';
 import '../data/data_source/get_data_users_remote_data_source.dart';
 import '../data/repositories/get_data_users_impl_repository.dart';

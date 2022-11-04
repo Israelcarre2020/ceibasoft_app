@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/di_manager/di_manager.dart';
+import '../../../../shared/routes/app_routes.dart';
+import '../../domain/entities/post_model.dart';
 import '../../domain/entities/user_model.dart';
 import '../../domain/use_cases/get_all_post_use_case.dart';
 import '../../domain/use_cases/get_users_use_case.dart';
@@ -43,7 +45,7 @@ class _UsersListPageViewState extends State<UsersListPageView> {
     final theme = Theme.of(context);
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Users List'),
+          title: const Text('Usuarios'),
           centerTitle: true,
         ),
         body: BlocConsumer<UsersCubit, UsersState>(listener: (_, state) {
@@ -86,7 +88,15 @@ class _UsersListPageViewState extends State<UsersListPageView> {
                             return CustomUserCard(
                               user: usersList[index],
                               onPress: (userId) {
-                                print(userId);
+                                final userPosts = context
+                                    .read<UsersCubit>()
+                                    .getUserPosts(userId);
+
+                                Navigator.pushNamed(
+                                    context, AppRoutes.detailUser, arguments: {
+                                  'posts': userPosts,
+                                  'user': usersList[index]
+                                });
                               },
                             );
                           }),
@@ -130,7 +140,7 @@ class _UsersListPageViewState extends State<UsersListPageView> {
           hintText: 'Filtrar',
         ),
         onChanged: (value) {
-          context.read<UsersCubit>().searchData(value);
+          context.read<UsersCubit>().searchUser(value);
         },
       ),
     );

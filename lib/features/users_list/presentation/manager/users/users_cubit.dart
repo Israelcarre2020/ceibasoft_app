@@ -48,11 +48,15 @@ class UsersCubit extends Cubit<UsersState> {
     }
   }
 
-  void searchData(String value) {
+  void searchUser(String value) {
     filterUsers = allUsers
         .where((u) => u.name.toLowerCase().contains(value.toLowerCase()))
         .toList();
 
     emit(UsersState.allUsers(filterUsers));
+  }
+
+  List<PostModel> getUserPosts(int id) {
+    return allPosts.where((u) => u.userId == id).toList();
   }
 }

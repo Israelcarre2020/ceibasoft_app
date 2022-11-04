@@ -5,9 +5,9 @@ import '../../domain/entities/user_model.dart';
 
 class CustomUserCard extends StatelessWidget {
   final UserModel user;
-  final Function(int) onPress;
+  final Function(int)? onPress;
 
-  const CustomUserCard({required this.user, required this.onPress});
+  const CustomUserCard({required this.user, this.onPress});
 
   @override
   Widget build(BuildContext context) {
@@ -18,34 +18,32 @@ class CustomUserCard extends StatelessWidget {
       margin: const EdgeInsets.only(left: 10, right: 10, top: 20),
       elevation: 5,
       child: Container(
-        padding: const EdgeInsets.all(10),
-        child: Column(
-          children: [
-            Column(
-              children: [
-                SizedBox(
-                    width: double.infinity,
-                    child: Text(user.name,
-                        style: theme.textTheme.button!
-                            .copyWith(color: AppColorsTheme.secondary))),
-                _userDataWithIcon(user.phone, Icons.phone, theme),
-                _userDataWithIcon(user.email, Icons.mail, theme),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
+          padding: const EdgeInsets.all(10),
+          child: Column(
+            children: [
+              SizedBox(
+                  width: double.infinity,
+                  child: Text(user.name,
+                      style: theme.textTheme.button!
+                          .copyWith(color: AppColorsTheme.secondary))),
+              _userDataWithIcon(user.phone, Icons.phone, theme),
+              _userDataWithIcon(user.email, Icons.mail, theme),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  if (onPress != null)
                     TextButton(
                         onPressed: () {
-                          onPress(user.id);
+                          onPress!(user.id);
                         },
                         child: Text('Ver publicaciones',
                             style: theme.textTheme.button))
-                  ],
-                )
-              ],
-            )
-          ],
-        ),
-      ),
+                  else
+                    const SizedBox()
+                ],
+              )
+            ],
+          )),
     );
   }
 
