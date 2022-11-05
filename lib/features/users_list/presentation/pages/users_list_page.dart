@@ -6,7 +6,9 @@ import '../../../../shared/routes/app_routes.dart';
 import '../../domain/entities/post_model.dart';
 import '../../domain/entities/user_model.dart';
 import '../../domain/use_cases/get_all_post_use_case.dart';
+import '../../domain/use_cases/get_all_posts_local_bd_use_case.dart';
 import '../../domain/use_cases/get_users_use_case.dart';
+import '../../domain/use_cases/insert_posts_local_bd_use_case.dart';
 import '../manager/users/users_cubit.dart';
 import '../widgets/custom_user_card.dart';
 
@@ -17,9 +19,12 @@ class UsersListPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => UsersCubit(
-        getDataUsersUseCase: DIManager.getIt<GetDataUsersUseCase>(),
-        getAllPostsUseCase: DIManager.getIt<GetAllPostsUseCase>(),
-      ),
+          getDataUsersUseCase: DIManager.getIt<GetDataUsersUseCase>(),
+          getAllPostsUseCase: DIManager.getIt<GetAllPostsUseCase>(),
+          insertPostsLocalDbUseCase:
+              DIManager.getIt<InsertPostsLocalDbUseCase>(),
+          getAllPostsLocalDbUseCase:
+              DIManager.getIt<GetAllPostsLocalDbUseCase>()),
       child: const UsersListPageView(),
     );
   }
@@ -35,8 +40,8 @@ class UsersListPageView extends StatefulWidget {
 class _UsersListPageViewState extends State<UsersListPageView> {
   @override
   void initState() {
-    context.read<UsersCubit>().getAllUsers();
-    context.read<UsersCubit>().getAllPosts();
+    context.read<UsersCubit>().getAllRemoteUsers();
+    context.read<UsersCubit>().syncInitialData();
     super.initState();
   }
 
@@ -92,20 +97,13 @@ class _UsersListPageViewState extends State<UsersListPageView> {
                                     .read<UsersCubit>()
                                     .getUserPosts(userId);
 
-                                Navigator.pushNamed(
-                                    context, AppRoutes.detailUser, arguments: {
-                                  'posts': userPosts,
-                                  'user': usersList[index]
-                                });
+                                _goToUserDetails(userPosts, usersList[index]);
                               },
                             );
                           }),
                     )
                 ],
               );
-            },
-            initial: () {
-              return _loadButton(context);
             },
             loading: () {
               return const Center(
@@ -119,8 +117,14 @@ class _UsersListPageViewState extends State<UsersListPageView> {
         }));
   }
 
+  Future<void> _goToUserDetails(
+      List<PostModel> userPosts, UserModel user) async {
+    await Navigator.pushNamed(context, AppRoutes.detailUser,
+        arguments: {'posts': userPosts, 'user': user});
+  }
+
   Future<void> getAllUsers(BuildContext context) async {
-    await context.read<UsersCubit>().getAllUsers();
+    await context.read<UsersCubit>().getAllRemoteUsers();
   }
 
   Widget _loadButton(BuildContext context) {

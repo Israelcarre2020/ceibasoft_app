@@ -5,7 +5,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../../domain/entities/post_model.dart';
 import '../../../domain/entities/user_model.dart';
 import '../../../domain/use_cases/get_all_post_use_case.dart';
+import '../../../domain/use_cases/get_all_posts_local_bd_use_case.dart';
 import '../../../domain/use_cases/get_users_use_case.dart';
+import '../../../domain/use_cases/insert_posts_local_bd_use_case.dart';
 
 part 'users_state.dart';
 part 'users_cubit.freezed.dart';
@@ -13,19 +15,33 @@ part 'users_cubit.freezed.dart';
 class UsersCubit extends Cubit<UsersState> {
   final GetDataUsersUseCase _getDataUsersUseCase;
   final GetAllPostsUseCase _getAllPostsUseCase;
+  final InsertPostsLocalDbUseCase _insertPostsLocalDbUseCase;
+  final GetAllPostsLocalDbUseCase _getAllPostsLocalDbUseCase;
 
-  UsersCubit(
-      {required GetDataUsersUseCase getDataUsersUseCase,
-      required GetAllPostsUseCase getAllPostsUseCase})
-      : _getDataUsersUseCase = getDataUsersUseCase,
+  UsersCubit({
+    required GetDataUsersUseCase getDataUsersUseCase,
+    required GetAllPostsUseCase getAllPostsUseCase,
+    required InsertPostsLocalDbUseCase insertPostsLocalDbUseCase,
+    required GetAllPostsLocalDbUseCase getAllPostsLocalDbUseCase,
+  })  : _getDataUsersUseCase = getDataUsersUseCase,
         _getAllPostsUseCase = getAllPostsUseCase,
-        super(const UsersState.initial());
+        _insertPostsLocalDbUseCase = insertPostsLocalDbUseCase,
+        _getAllPostsLocalDbUseCase = getAllPostsLocalDbUseCase,
+        super(const UsersState.loading());
 
   List<UserModel> allUsers = [];
   List<PostModel> allPosts = [];
   List<UserModel> filterUsers = [];
 
-  Future<void> getAllUsers() async {
+  Future<void> syncInitialData() async {
+    await getAllLocalPosts();
+    if (allPosts.isEmpty) {
+      await getAllRemotePosts();
+      await savePostsLocal();
+    }
+  }
+
+  Future<void> getAllRemoteUsers() async {
     try {
       emit(const UsersState.loading());
       allUsers = await _getDataUsersUseCase(null);
@@ -37,12 +53,32 @@ class UsersCubit extends Cubit<UsersState> {
     }
   }
 
-  Future<void> getAllPosts() async {
+  Future<void> getAllRemotePosts() async {
     try {
       emit(const UsersState.loading());
       allPosts = await _getAllPostsUseCase(null);
     } on DioError catch (e) {
       emit(UsersState.error(e.error.toString()));
+    } catch (e) {
+      emit(UsersState.error(e.toString()));
+    }
+  }
+
+  Future<void> savePostsLocal() async {
+    try {
+      emit(const UsersState.loading());
+      await _insertPostsLocalDbUseCase(allPosts);
+      emit(UsersState.allUsers(allUsers));
+    } catch (e) {
+      emit(UsersState.error(e.toString()));
+    }
+  }
+
+  Future<void> getAllLocalPosts() async {
+    try {
+      emit(const UsersState.loading());
+      allPosts = await _getAllPostsLocalDbUseCase(null);
+      emit(UsersState.allUsers(allUsers));
     } catch (e) {
       emit(UsersState.error(e.toString()));
     }

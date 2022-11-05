@@ -1,36 +1,44 @@
 import 'package:flutter/material.dart';
 
-import 'core/db/home_page.dart';
-import 'core/db/init.dart';
+import 'core/db/initLocalDB.dart';
+import 'features/users_list/presentation/pages/users_list_page.dart';
+import 'injection_container.dart';
+import 'shared/routes/app_routes.dart';
+import 'shared/routes/route_generator.dart';
+import 'shared/theme/theme.dart';
+import 'shared/utils/navigator_key.dart';
 
-void main() => runApp(CakeApp());
+void main() => runApp(const MyApp());
 
-class CakeApp extends StatefulWidget {
+class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
   @override
-  _CakeAppState createState() => _CakeAppState();
+  State<MyApp> createState() => _MyAppState();
 }
 
-class _CakeAppState extends State<CakeApp> {
-  final Future _init = Init.initialize();
+class _MyAppState extends State<MyApp> {
+  @override
+  void initState() {
+    injectionDependencies();
+
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'My Favorite Cakes',
-      home: FutureBuilder(
-        future: _init,
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.done) {
-            return HomePage();
-          } else {
-            return Material(
-              child: Center(
-                child: CircularProgressIndicator(),
-              ),
-            );
-          }
-        },
-      ),
+      debugShowCheckedModeBanner: false,
+      theme: lightTheme,
+      themeMode: ThemeMode.light,
+      title: 'Ceiba App',
+      navigatorKey: navigatorKey,
+      initialRoute: AppRoutes.usersList,
+      onGenerateRoute: _onGenerateRoute,
     );
+  }
+
+  Route? _onGenerateRoute(RouteSettings settings) {
+    return RouteGenerator.generateRoute(settings);
   }
 }

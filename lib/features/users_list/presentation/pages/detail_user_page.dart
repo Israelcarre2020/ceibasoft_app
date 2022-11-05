@@ -21,7 +21,7 @@ class DetailUserPage extends StatelessWidget {
           CustomUserCard(user: user),
           const SizedBox(height: 20),
           Text(
-            'Posts Del Usuario:',
+            'Posts Del Usuario: ${userPosts.length}',
             style: theme.textTheme.headline4,
           ),
           Expanded(
