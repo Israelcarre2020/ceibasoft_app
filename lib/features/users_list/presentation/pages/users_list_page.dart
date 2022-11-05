@@ -5,10 +5,10 @@ import '../../../../core/di_manager/di_manager.dart';
 import '../../../../shared/routes/app_routes.dart';
 import '../../domain/entities/post_model.dart';
 import '../../domain/entities/user_model.dart';
-import '../../domain/use_cases/get_all_post_use_case.dart';
+import '../../domain/use_cases/get_all_post_remote_use_case.dart';
 import '../../domain/use_cases/get_all_posts_local_bd_use_case.dart';
-import '../../domain/use_cases/get_users_use_case.dart';
-import '../../domain/use_cases/insert_posts_local_bd_use_case.dart';
+import '../../domain/use_cases/get_users_remote_use_case.dart';
+import '../../domain/use_cases/save_posts_local_bd_use_case.dart';
 import '../manager/users/users_cubit.dart';
 import '../widgets/custom_user_card.dart';
 

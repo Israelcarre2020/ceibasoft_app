@@ -7,15 +7,15 @@ import '../../../core/db/initLocalDB.dart';
 import '../../../core/di_manager/di_manager.dart';
 import '../../../core/http/data/http_proxy_impl.dart';
 import '../data/data_source/get_data_users_remote_data_source.dart';
-import '../data/data_source/get_local_db_remote_data_source.dart';
+import '../data/data_source/get_local_db_data_source.dart';
 import '../data/repositories/get_data_users_impl_repository.dart';
 import '../data/repositories/local_db_impl_repository.dart';
-import '../domain/repositories/get_data_users_repository_contract.dart';
+import '../domain/repositories/get_data_remote_users_repository_contract.dart';
 import '../domain/repositories/local_db_repository_contract.dart';
-import '../domain/use_cases/get_all_post_use_case.dart';
+import '../domain/use_cases/get_all_post_remote_use_case.dart';
 import '../domain/use_cases/get_all_posts_local_bd_use_case.dart';
-import '../domain/use_cases/get_users_use_case.dart';
-import '../domain/use_cases/insert_posts_local_bd_use_case.dart';
+import '../domain/use_cases/get_users_remote_use_case.dart';
+import '../domain/use_cases/save_posts_local_bd_use_case.dart';
 import '../presentation/manager/users/users_cubit.dart';
 
 abstract class UsersDependencyInjector {
@@ -33,7 +33,7 @@ abstract class UsersDependencyInjector {
         RemoteApiConstants.getAllUsersEndpoint,
         RemoteApiConstants.getAllPostsEndpoint));
 
-    DIManager.getIt.registerSingleton(GetLocalDbRemoteDataSource(
+    DIManager.getIt.registerSingleton(GetLocalDbDataSource(
         DIManager.getIt<InitLocalDb>(), intMapStoreFactory.store('ceiba_db')));
 
     DIManager.getIt.registerSingleton<GetDataUsersContract>(
@@ -44,7 +44,7 @@ abstract class UsersDependencyInjector {
 
     DIManager.getIt.registerSingleton<LocalDBRepositoryContract>(
       LocalDbRepositoryImpl(
-        DIManager.getIt<GetLocalDbRemoteDataSource>(),
+        DIManager.getIt<GetLocalDbDataSource>(),
       ),
     );
 

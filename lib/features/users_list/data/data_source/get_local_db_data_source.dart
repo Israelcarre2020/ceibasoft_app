@@ -5,12 +5,12 @@ import 'package:sembast/sembast.dart';
 import '../../../../core/db/initLocalDB.dart';
 import '../../domain/entities/post_model.dart';
 
-class GetLocalDbRemoteDataSource {
+class GetLocalDbDataSource {
   final InitLocalDb localDB;
 
   final StoreRef store;
 
-  GetLocalDbRemoteDataSource(this.localDB, this.store);
+  GetLocalDbDataSource(this.localDB, this.store);
 
   Future<List<PostModel>> getAllPosts() async {
     final database = await localDB.initSembast();

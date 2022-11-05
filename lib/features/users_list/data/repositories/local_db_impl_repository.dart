@@ -2,20 +2,20 @@
 
 import '../../domain/entities/post_model.dart';
 import '../../domain/repositories/local_db_repository_contract.dart';
-import '../data_source/get_local_db_remote_data_source.dart';
+import '../data_source/get_local_db_data_source.dart';
 
 class LocalDbRepositoryImpl implements LocalDBRepositoryContract {
-  final GetLocalDbRemoteDataSource getLocalDbRemoteDataSource;
+  final GetLocalDbDataSource getLocalDbDataSource;
 
-  LocalDbRepositoryImpl(this.getLocalDbRemoteDataSource);
+  LocalDbRepositoryImpl(this.getLocalDbDataSource);
 
   @override
   Future<void> saveAllPosts(List<PostModel> allPosts) async {
-    await getLocalDbRemoteDataSource.saveAllPosts(allPosts);
+    await getLocalDbDataSource.saveAllPosts(allPosts);
   }
 
   @override
   Future<List<PostModel>> getAllPosts() async {
-    return getLocalDbRemoteDataSource.getAllPosts();
+    return getLocalDbDataSource.getAllPosts();
   }
 }

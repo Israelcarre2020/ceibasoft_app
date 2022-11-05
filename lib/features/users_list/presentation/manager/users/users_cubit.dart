@@ -4,10 +4,10 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../domain/entities/post_model.dart';
 import '../../../domain/entities/user_model.dart';
-import '../../../domain/use_cases/get_all_post_use_case.dart';
+import '../../../domain/use_cases/get_all_post_remote_use_case.dart';
 import '../../../domain/use_cases/get_all_posts_local_bd_use_case.dart';
-import '../../../domain/use_cases/get_users_use_case.dart';
-import '../../../domain/use_cases/insert_posts_local_bd_use_case.dart';
+import '../../../domain/use_cases/get_users_remote_use_case.dart';
+import '../../../domain/use_cases/save_posts_local_bd_use_case.dart';
 
 part 'users_state.dart';
 part 'users_cubit.freezed.dart';
