@@ -1,5 +1,5 @@
 import '../../../core/config/remote_api_constants.dart';
-import '../../../core/db/initLocalDB.dart';
+import '../../../core/db/init_local_db.dart';
 import '../../../core/db/stores_db.dart';
 import '../../../core/di_manager/di_manager.dart';
 import '../../../core/http/data/http_proxy_impl.dart';
@@ -21,7 +21,9 @@ abstract class UsersDependencyInjector {
   static bool _alreadyInit = false;
 
   static Future<void> initializeDependencies() async {
-    if (_alreadyInit) return;
+    if (_alreadyInit) {
+      return;
+    }
 
     DIManager.getIt.registerSingleton(HttpImpl());
 

@@ -4,7 +4,7 @@ import 'dart:convert';
 
 import 'package:sembast/sembast.dart';
 
-import '../../../../core/db/initLocalDB.dart';
+import '../../../../core/db/init_local_db.dart';
 import '../../domain/entities/post_model.dart';
 import '../../domain/entities/user_model.dart';
 
