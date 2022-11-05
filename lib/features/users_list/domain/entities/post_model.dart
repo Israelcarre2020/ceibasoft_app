@@ -12,6 +12,7 @@ part 'post_model.g.dart';
 PostModel postModelFromJson(String str) => PostModel.fromJson(json.decode(str));
 
 String postModelToJson(PostModel data) => json.encode(data.toJson());
+
 List<PostModel> getPostsListFromJson(List<dynamic> data) =>
     // ignore: unnecessary_lambdas
     List<PostModel>.from(data.map((x) => PostModel.fromJson(x)));

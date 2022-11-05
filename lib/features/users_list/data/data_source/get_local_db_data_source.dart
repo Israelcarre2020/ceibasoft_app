@@ -19,6 +19,7 @@ class GetLocalDbDataSource {
   Future<List<PostModel>> getAllPosts() async {
     final database = await localDB.initSembast();
     final snapshots = await storePosts.find(database);
+
     return snapshots
         .map((snapshot) => PostModel.fromJson(snapshot.value))
         .toList(growable: false);

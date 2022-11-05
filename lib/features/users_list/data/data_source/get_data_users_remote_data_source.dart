@@ -15,26 +15,16 @@ class GetDataUsersRemoteDatasource {
   Future<List<UserModel>> getUsers() async {
     final http = _httpImpl.instance();
     Response response;
+    response = await http.get(_getAllUsersUrl);
 
-    try {
-      response = await http.get(_getAllUsersUrl);
-
-      return getUsersListFromJson(response.data);
-    } catch (e) {
-      rethrow;
-    }
+    return getUsersListFromJson(response.data);
   }
 
   Future<List<PostModel>> getAllPosts() async {
     final http = _httpImpl.instance();
     Response response;
 
-    try {
-      response = await http.get(_getAllpostsUrl);
-
-      return getPostsListFromJson(response.data);
-    } catch (e) {
-      rethrow;
-    }
+    response = await http.get(_getAllpostsUrl);
+    return getPostsListFromJson(response.data);
   }
 }

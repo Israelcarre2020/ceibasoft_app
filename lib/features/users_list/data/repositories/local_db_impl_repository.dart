@@ -12,37 +12,21 @@ class LocalDbRepositoryImpl implements LocalDBRepositoryContract {
 
   @override
   Future<void> saveAllPosts(List<PostModel> allPosts) async {
-    try {
-      await getLocalDbDataSource.saveAllPosts(allPosts);
-    } catch (e) {
-      rethrow;
-    }
+    await getLocalDbDataSource.saveAllPosts(allPosts);
   }
 
   @override
   Future<List<PostModel>> getAllPosts() async {
-    try {
-      return getLocalDbDataSource.getAllPosts();
-    } catch (e) {
-      rethrow;
-    }
+    return getLocalDbDataSource.getAllPosts();
   }
 
   @override
   Future<void> saveAllDataUsers(List<UserModel> users) async {
-    try {
-      await getLocalDbDataSource.saveAllDataUsers(users);
-    } catch (e) {
-      rethrow;
-    }
+    await getLocalDbDataSource.saveAllDataUsers(users);
   }
 
   @override
   Future<List<UserModel>> getAllUsers() async {
-    try {
-      return getLocalDbDataSource.getAllUsers();
-    } catch (e) {
-      rethrow;
-    }
+    return getLocalDbDataSource.getAllUsers();
   }
 }

@@ -1,3 +1,5 @@
+import 'package:sembast/sembast.dart';
+
 import '../../../core/config/remote_api_constants.dart';
 import '../../../core/db/init_local_db.dart';
 import '../../../core/db/stores_db.dart';
@@ -36,8 +38,8 @@ abstract class UsersDependencyInjector {
 
     DIManager.getIt.registerSingleton(GetLocalDbDataSource(
         DIManager.getIt<InitLocalDb>(),
-        StoresDB.getPostsDB,
-        StoresDB.getUsersDB));
+        StoresDB().getPostsDB,
+        StoresDB().getUsersDB));
 
     DIManager.getIt.registerSingleton<GetDataUsersContract>(
       GetDataUsersImplRepository(
