@@ -33,7 +33,9 @@ abstract class UsersDependencyInjector {
         RemoteApiConstants.getAllPostsEndpoint));
 
     DIManager.getIt.registerSingleton(GetLocalDbDataSource(
-        DIManager.getIt<InitLocalDb>(), StoresDB.postsDB, StoresDB.usersDB));
+        DIManager.getIt<InitLocalDb>(),
+        StoresDB.getPostsDB,
+        StoresDB.getUsersDB));
 
     DIManager.getIt.registerSingleton<GetDataUsersContract>(
       GetDataUsersImplRepository(

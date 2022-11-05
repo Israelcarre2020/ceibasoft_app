@@ -3,6 +3,6 @@
 import 'package:sembast/sembast.dart';
 
 abstract class StoresDB {
-  static final postsDB = intMapStoreFactory.store('posts');
-  static final usersDB = intMapStoreFactory.store('users');
+  static StoreRef get getPostsDB => intMapStoreFactory.store('posts');
+  static StoreRef get getUsersDB => intMapStoreFactory.store('users');
 }
