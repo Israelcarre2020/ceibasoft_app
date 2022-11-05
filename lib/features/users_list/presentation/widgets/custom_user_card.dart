@@ -14,7 +14,7 @@ class CustomUserCard extends StatelessWidget {
     final theme = Theme.of(context);
     return Card(
       shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(20))),
+          borderRadius: BorderRadius.all(Radius.circular(10))),
       margin: const EdgeInsets.only(left: 10, right: 10, top: 20),
       elevation: 5,
       child: Container(

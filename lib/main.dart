@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'core/db/initLocalDB.dart';
-import 'features/users_list/presentation/pages/users_list_page.dart';
 import 'injection_container.dart';
 import 'shared/routes/app_routes.dart';
 import 'shared/routes/route_generator.dart';

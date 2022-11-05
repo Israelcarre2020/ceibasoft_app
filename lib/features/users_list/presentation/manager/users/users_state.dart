@@ -1,6 +1,5 @@
 part of 'users_cubit.dart';
 
-//TODO: AGREGAR LOS DEMÁS ESTADOS
 @freezed
 abstract class UsersState with _$UsersState {
   const factory UsersState.loading() = _Loading;

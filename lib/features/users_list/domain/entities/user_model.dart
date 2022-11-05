@@ -4,11 +4,6 @@
 
 import 'dart:convert';
 
-import 'package:freezed_annotation/freezed_annotation.dart';
-
-part 'user_model.freezed.dart';
-part 'user_model.g.dart';
-
 UserModel userModelFromJson(String str) => UserModel.fromJson(json.decode(str));
 
 String userModelToJson(UserModel data) => json.encode(data.toJson());
@@ -17,55 +12,127 @@ List<UserModel> getUsersListFromJson(List<dynamic> data) =>
     // ignore: unnecessary_lambdas
     List<UserModel>.from(data.map((x) => UserModel.fromJson(x)));
 
-@freezed
-abstract class UserModel with _$UserModel {
-  const factory UserModel({
-    required int id,
-    required String name,
-    required String username,
-    required String email,
-    required Address address,
-    required String phone,
-    required String website,
-    required Company company,
-  }) = _UserModel;
+class UserModel {
+  UserModel({
+    required this.id,
+    required this.name,
+    required this.username,
+    required this.email,
+    required this.address,
+    required this.phone,
+    required this.website,
+    required this.company,
+  });
 
-  factory UserModel.fromJson(Map<String, dynamic> json) =>
-      _$UserModelFromJson(json);
+  int id;
+  String name;
+  String username;
+  String email;
+  Address address;
+  String phone;
+  String website;
+  Company company;
+
+  factory UserModel.fromJson(Map<String, dynamic> json) => UserModel(
+        id: json['id'],
+        name: json['name'],
+        username: json['username'],
+        email: json['email'],
+        address: Address.fromJson(json['address']),
+        phone: json['phone'],
+        website: json['website'],
+        company: Company.fromJson(json['company']),
+      );
+
+  Map<String, dynamic> toJson() => {
+        'id': id,
+        'name': name,
+        'username': username,
+        'email': email,
+        'address': address.toJson(),
+        'phone': phone,
+        'website': website,
+        'company': company.toJson(),
+      };
+
+  @override
+  String toString() {
+    return '{"address":{"street":"${address.street}", "suite":"${address.suite}", "city":"${address.city}","zipcode":"${address.zipcode}","geo":{"lat":"${address.geo.lat}","lng":"${address.geo.lng}"}},"company": {"name": "${company.name}", "catchPhrase": "${company.catchPhrase}","bs": "${company.bs}" }, "email": "$email", "id":$id ,"name":"$name", "phone":"$phone", "username":"$username", "website":"$website" }';
+  }
 }
 
-@freezed
-abstract class Address with _$Address {
-  const factory Address({
-    required String street,
-    required String suite,
-    required String city,
-    required String zipcode,
-    required Geo geo,
-  }) = _Address;
+class Address {
+  Address({
+    required this.street,
+    required this.suite,
+    required this.city,
+    required this.zipcode,
+    required this.geo,
+  });
 
-  factory Address.fromJson(Map<String, dynamic> json) =>
-      _$AddressFromJson(json);
+  String street;
+  String suite;
+  String city;
+  String zipcode;
+  Geo geo;
+
+  factory Address.fromJson(Map<String, dynamic> json) => Address(
+        street: json['street'],
+        suite: json['suite'],
+        city: json['city'],
+        zipcode: json['zipcode'],
+        geo: Geo.fromJson(json['geo']),
+      );
+
+  Map<String, dynamic> toJson() => {
+        'street': street,
+        'suite': suite,
+        'city': city,
+        'zipcode': zipcode,
+        'geo': geo.toJson(),
+      };
 }
 
-@freezed
-abstract class Geo with _$Geo {
-  const factory Geo({
-    required String lat,
-    required String lng,
-  }) = _Geo;
+class Geo {
+  Geo({
+    required this.lat,
+    required this.lng,
+  });
 
-  factory Geo.fromJson(Map<String, dynamic> json) => _$GeoFromJson(json);
+  String lat;
+  String lng;
+
+  factory Geo.fromJson(Map<String, dynamic> json) => Geo(
+        lat: json['lat'],
+        lng: json['lng'],
+      );
+
+  Map<String, dynamic> toJson() => {
+        'lat': lat,
+        'lng': lng,
+      };
 }
 
-@freezed
-abstract class Company with _$Company {
-  const factory Company({
-    required String name,
-    required String catchPhrase,
-    required String bs,
-  }) = _Company;
+class Company {
+  Company({
+    required this.name,
+    required this.catchPhrase,
+    required this.bs,
+  });
 
-  factory Company.fromJson(Map<String, dynamic> json) =>
-      _$CompanyFromJson(json);
+  String name;
+  String catchPhrase;
+  String bs;
+
+  factory Company.fromJson(Map<String, dynamic> json) => Company(
+        name: json['name'],
+        catchPhrase: json['catchPhrase'],
+        bs: json['bs'],
+      );
+
+  Map<String, dynamic> toJson() => {
+        'name': name,
+        'catchPhrase': catchPhrase,
+        'bs': bs,
+      };
 }

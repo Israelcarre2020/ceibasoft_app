@@ -243,11 +243,6 @@ class _$_UserModel implements _UserModel {
   final Company company;
 
   @override
-  String toString() {
-    return 'UserModel(id: $id, name: $name, username: $username, email: $email, address: $address, phone: $phone, website: $website, company: $company)';
-  }
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&

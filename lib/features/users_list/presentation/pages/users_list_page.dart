@@ -7,8 +7,10 @@ import '../../domain/entities/post_model.dart';
 import '../../domain/entities/user_model.dart';
 import '../../domain/use_cases/get_all_post_remote_use_case.dart';
 import '../../domain/use_cases/get_all_posts_local_bd_use_case.dart';
+import '../../domain/use_cases/get_users_local_db_use_case.dart';
 import '../../domain/use_cases/get_users_remote_use_case.dart';
-import '../../domain/use_cases/save_posts_local_bd_use_case.dart';
+import '../../domain/use_cases/save_posts_local_db_use_case.dart';
+import '../../domain/use_cases/save_users_local_db_use_case.dart';
 import '../manager/users/users_cubit.dart';
 import '../widgets/custom_user_card.dart';
 
@@ -19,12 +21,13 @@ class UsersListPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => UsersCubit(
-          getDataUsersUseCase: DIManager.getIt<GetDataUsersUseCase>(),
-          getAllPostsUseCase: DIManager.getIt<GetAllPostsUseCase>(),
-          insertPostsLocalDbUseCase:
-              DIManager.getIt<InsertPostsLocalDbUseCase>(),
-          getAllPostsLocalDbUseCase:
-              DIManager.getIt<GetAllPostsLocalDbUseCase>()),
+        getDataUsersUseCase: DIManager.getIt<GetDataUsersUseCase>(),
+        getAllPostsUseCase: DIManager.getIt<GetAllPostsUseCase>(),
+        insertPostsLocalDbUseCase: DIManager.getIt<SavePostsLocalDbUseCase>(),
+        getAllPostsLocalDbUseCase: DIManager.getIt<GetAllPostsLocalDbUseCase>(),
+        saveUsersLocalDbUseCase: DIManager.getIt<SaveUsersLocalDbUseCase>(),
+        getUsersLocalDbUseCase: DIManager.getIt<GetUsersLocalDbUseCase>(),
+      ),
       child: const UsersListPageView(),
     );
   }
@@ -40,7 +43,6 @@ class UsersListPageView extends StatefulWidget {
 class _UsersListPageViewState extends State<UsersListPageView> {
   @override
   void initState() {
-    context.read<UsersCubit>().getAllRemoteUsers();
     context.read<UsersCubit>().syncInitialData();
     super.initState();
   }
@@ -128,9 +130,11 @@ class _UsersListPageViewState extends State<UsersListPageView> {
   }
 
   Widget _loadButton(BuildContext context) {
-    return TextButton(
-        onPressed: () async => getAllUsers(context),
-        child: const Text('Load Data'));
+    return Center(
+      child: TextButton(
+          onPressed: () async => getAllUsers(context),
+          child: const Text('Cargar Nuevamente')),
+    );
   }
 
   Widget searchField(List<UserModel> users, BuildContext context) {
