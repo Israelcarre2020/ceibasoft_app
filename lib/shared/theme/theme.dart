@@ -11,20 +11,6 @@ final lightTheme = ThemeData.light().copyWith(
   hoverColor: AppColorsTheme.primary,
   textSelectionTheme:
       const TextSelectionThemeData(cursorColor: AppColorsTheme.primary),
-  tabBarTheme: TabBarTheme(
-    labelColor: AppColorsTheme.bodytext,
-    labelStyle: AppTextTheme.textThemeLight.caption,
-    unselectedLabelColor: AppColorsTheme.bodytext,
-    unselectedLabelStyle: AppTextTheme.textThemeLight.caption,
-    indicator: const BoxDecoration(
-      border: Border(
-        bottom: BorderSide(
-          color: AppColorsTheme.secondary,
-          width: 2,
-        ),
-      ),
-    ),
-  ),
   textTheme: AppTextTheme.textThemeLight,
   iconTheme: const IconThemeData(color: AppColorsTheme.primary, size: 28),
   appBarTheme: const AppBarTheme(

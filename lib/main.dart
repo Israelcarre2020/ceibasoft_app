@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'injection_container.dart';
+import 'core/di_manager/injection_container.dart';
 import 'shared/routes/app_routes.dart';
 import 'shared/routes/route_generator.dart';
 import 'shared/theme/theme.dart';
