@@ -1,9 +1,6 @@
-// ignore_for_file: omit_local_variable_types, import_of_legacy_library_into_null_safe
-
-import 'package:sembast/sembast.dart';
-
 import '../../../core/config/remote_api_constants.dart';
 import '../../../core/db/initLocalDB.dart';
+import '../../../core/db/stores_db.dart';
 import '../../../core/di_manager/di_manager.dart';
 import '../../../core/http/data/http_proxy_impl.dart';
 import '../data/data_source/get_data_users_remote_data_source.dart';
@@ -36,9 +33,7 @@ abstract class UsersDependencyInjector {
         RemoteApiConstants.getAllPostsEndpoint));
 
     DIManager.getIt.registerSingleton(GetLocalDbDataSource(
-        DIManager.getIt<InitLocalDb>(),
-        intMapStoreFactory.store('posts'),
-        intMapStoreFactory.store('users')));
+        DIManager.getIt<InitLocalDb>(), StoresDB.postsDB, StoresDB.usersDB));
 
     DIManager.getIt.registerSingleton<GetDataUsersContract>(
       GetDataUsersImplRepository(

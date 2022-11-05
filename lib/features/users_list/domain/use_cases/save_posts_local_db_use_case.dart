@@ -1,4 +1,4 @@
-import '../../../../core/use_case/use_case.dart';
+import '../../../../core/use_case_generic/use_case.dart';
 import '../entities/post_model.dart';
 import '../repositories/local_db_repository_contract.dart';
 
