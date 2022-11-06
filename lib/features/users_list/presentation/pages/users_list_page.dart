@@ -70,52 +70,50 @@ class _UsersListPageViewState extends State<UsersListPageView> {
             orElse: () {},
           );
         }, builder: (_, state) {
-          return state.when(
-            allUsers: (usersList) {
-              return Column(
-                children: [
-                  searchField(usersList, context),
-                  if (usersList.isEmpty)
-                    Container(
-                        margin: const EdgeInsets.only(top: 30),
-                        child: Column(
-                          children: [
-                            Text(
-                              'List is empty',
-                              style: theme.textTheme.caption,
-                            ),
-                            const Icon(Icons.data_array)
-                          ],
-                        ))
-                  else
-                    Expanded(
-                      child: ListView.builder(
-                          itemCount: usersList.length,
-                          itemBuilder: (context, index) {
-                            return CustomUserCard(
-                              user: usersList[index],
-                              onPress: (userId) {
-                                final userPosts = context
-                                    .read<UsersCubit>()
-                                    .getUserPosts(userId);
+          return state.maybeWhen(allUsers: (usersList) {
+            return Column(
+              children: [
+                searchField(usersList, context),
+                if (usersList.isEmpty)
+                  Container(
+                      margin: const EdgeInsets.only(top: 30),
+                      child: Column(
+                        children: [
+                          Text(
+                            'List is empty',
+                            style: theme.textTheme.caption,
+                          ),
+                          const Icon(Icons.data_array)
+                        ],
+                      ))
+                else
+                  Expanded(
+                    child: ListView.builder(
+                        itemCount: usersList.length,
+                        itemBuilder: (context, index) {
+                          return CustomUserCard(
+                            user: usersList[index],
+                            onPress: (userId) {
+                              final userPosts = context
+                                  .read<UsersCubit>()
+                                  .getUserPosts(userId);
 
-                                _goToUserDetails(userPosts, usersList[index]);
-                              },
-                            );
-                          }),
-                    )
-                ],
-              );
-            },
-            loading: () {
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
-            },
-            error: (error) {
-              return _loadButton(context);
-            },
-          );
+                              _goToUserDetails(userPosts, usersList[index]);
+                            },
+                          );
+                        }),
+                  )
+              ],
+            );
+          }, loading: () {
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          }, error: (error) {
+            return _loadButton(context);
+          }, orElse: () {
+            return _loadButton(context);
+          });
         }));
   }
 

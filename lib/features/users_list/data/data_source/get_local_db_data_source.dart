@@ -4,7 +4,7 @@ import 'dart:convert';
 
 import 'package:sembast/sembast.dart';
 
-import '../../../../core/db/initLocalDB.dart';
+import '../../../../core/db/init_local_db.dart';
 import '../../domain/entities/post_model.dart';
 import '../../domain/entities/user_model.dart';
 
@@ -19,6 +19,7 @@ class GetLocalDbDataSource {
   Future<List<PostModel>> getAllPosts() async {
     final database = await localDB.initSembast();
     final snapshots = await storePosts.find(database);
+
     return snapshots
         .map((snapshot) => PostModel.fromJson(snapshot.value))
         .toList(growable: false);

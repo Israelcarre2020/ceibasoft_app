@@ -10,19 +10,11 @@ class GetDataUsersImplRepository implements GetDataUsersContract {
 
   @override
   Future<List<UserModel>> getAllUsers() async {
-    try {
-      return _getDataUsersRemoteDatasource.getUsers();
-    } catch (e) {
-      rethrow;
-    }
+    return _getDataUsersRemoteDatasource.getUsers();
   }
 
   @override
   Future<List<PostModel>> getAllposts() {
-    try {
-      return _getDataUsersRemoteDatasource.getAllPosts();
-    } catch (e) {
-      rethrow;
-    }
+    return _getDataUsersRemoteDatasource.getAllPosts();
   }
 }

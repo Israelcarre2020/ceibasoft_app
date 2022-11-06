@@ -2,7 +2,7 @@
 
 import 'package:sembast/sembast.dart';
 
-abstract class StoresDB {
-  static StoreRef get getPostsDB => intMapStoreFactory.store('posts');
-  static StoreRef get getUsersDB => intMapStoreFactory.store('users');
+class StoresDB {
+  StoreRef get getPostsDB => intMapStoreFactory.store('posts');
+  StoreRef get getUsersDB => intMapStoreFactory.store('users');
 }

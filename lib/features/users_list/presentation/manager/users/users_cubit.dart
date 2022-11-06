@@ -85,6 +85,7 @@ class UsersCubit extends Cubit<UsersState> {
     try {
       emit(const UsersState.loading());
       allPosts = await _getAllPostsUseCase(null);
+      emit(UsersState.allPosts(allPosts));
     } on DioError catch (e) {
       emit(UsersState.error(e.error.toString()));
     } catch (e) {
@@ -96,7 +97,7 @@ class UsersCubit extends Cubit<UsersState> {
     try {
       emit(const UsersState.loading());
       await _insertPostsLocalDbUseCase(allPosts);
-      emit(UsersState.allUsers(allUsers));
+      emit(const UsersState.savedPosts());
     } catch (e) {
       emit(UsersState.error(e.toString()));
     }
@@ -106,7 +107,7 @@ class UsersCubit extends Cubit<UsersState> {
     try {
       emit(const UsersState.loading());
       await _saveUsersLocalDbUseCase(allUsers);
-      emit(UsersState.allUsers(allUsers));
+      emit(const UsersState.savedUsers());
     } catch (e) {
       emit(UsersState.error(e.toString()));
     }
@@ -116,7 +117,7 @@ class UsersCubit extends Cubit<UsersState> {
     try {
       emit(const UsersState.loading());
       allPosts = await _getAllPostsLocalDbUseCase(null);
-      emit(UsersState.allUsers(allUsers));
+      emit(UsersState.allPosts(allPosts));
     } catch (e) {
       emit(UsersState.error(e.toString()));
     }
