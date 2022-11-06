@@ -54,6 +54,7 @@ class UsersCubit extends Cubit<UsersState> {
       await getAllRemotePosts();
       await savePostsLocal();
     }
+    emit(const UsersState.syncFinished());
   }
 
   Future<void> getAllRemoteUsers() async {

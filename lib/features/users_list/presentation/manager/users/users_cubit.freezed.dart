@@ -23,6 +23,7 @@ mixin _$UsersState {
     required TResult Function(List<PostModel> postList) allPosts,
     required TResult Function() savedPosts,
     required TResult Function() savedUsers,
+    required TResult Function() syncFinished,
     required TResult Function(String message) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -33,6 +34,7 @@ mixin _$UsersState {
     TResult? Function(List<PostModel> postList)? allPosts,
     TResult? Function()? savedPosts,
     TResult? Function()? savedUsers,
+    TResult? Function()? syncFinished,
     TResult? Function(String message)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +45,7 @@ mixin _$UsersState {
     TResult Function(List<PostModel> postList)? allPosts,
     TResult Function()? savedPosts,
     TResult Function()? savedUsers,
+    TResult Function()? syncFinished,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) =>
@@ -54,6 +57,7 @@ mixin _$UsersState {
     required TResult Function(AllPosts value) allPosts,
     required TResult Function(_SavedPosts value) savedPosts,
     required TResult Function(_SavedUsers value) savedUsers,
+    required TResult Function(_SyncFinished value) syncFinished,
     required TResult Function(_Error value) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -64,6 +68,7 @@ mixin _$UsersState {
     TResult? Function(AllPosts value)? allPosts,
     TResult? Function(_SavedPosts value)? savedPosts,
     TResult? Function(_SavedUsers value)? savedUsers,
+    TResult? Function(_SyncFinished value)? syncFinished,
     TResult? Function(_Error value)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -74,6 +79,7 @@ mixin _$UsersState {
     TResult Function(AllPosts value)? allPosts,
     TResult Function(_SavedPosts value)? savedPosts,
     TResult Function(_SavedUsers value)? savedUsers,
+    TResult Function(_SyncFinished value)? syncFinished,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) =>
@@ -140,6 +146,7 @@ class _$_Loading implements _Loading {
     required TResult Function(List<PostModel> postList) allPosts,
     required TResult Function() savedPosts,
     required TResult Function() savedUsers,
+    required TResult Function() syncFinished,
     required TResult Function(String message) error,
   }) {
     return loading();
@@ -153,6 +160,7 @@ class _$_Loading implements _Loading {
     TResult? Function(List<PostModel> postList)? allPosts,
     TResult? Function()? savedPosts,
     TResult? Function()? savedUsers,
+    TResult? Function()? syncFinished,
     TResult? Function(String message)? error,
   }) {
     return loading?.call();
@@ -166,6 +174,7 @@ class _$_Loading implements _Loading {
     TResult Function(List<PostModel> postList)? allPosts,
     TResult Function()? savedPosts,
     TResult Function()? savedUsers,
+    TResult Function()? syncFinished,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -183,6 +192,7 @@ class _$_Loading implements _Loading {
     required TResult Function(AllPosts value) allPosts,
     required TResult Function(_SavedPosts value) savedPosts,
     required TResult Function(_SavedUsers value) savedUsers,
+    required TResult Function(_SyncFinished value) syncFinished,
     required TResult Function(_Error value) error,
   }) {
     return loading(this);
@@ -196,6 +206,7 @@ class _$_Loading implements _Loading {
     TResult? Function(AllPosts value)? allPosts,
     TResult? Function(_SavedPosts value)? savedPosts,
     TResult? Function(_SavedUsers value)? savedUsers,
+    TResult? Function(_SyncFinished value)? syncFinished,
     TResult? Function(_Error value)? error,
   }) {
     return loading?.call(this);
@@ -209,6 +220,7 @@ class _$_Loading implements _Loading {
     TResult Function(AllPosts value)? allPosts,
     TResult Function(_SavedPosts value)? savedPosts,
     TResult Function(_SavedUsers value)? savedUsers,
+    TResult Function(_SyncFinished value)? syncFinished,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
@@ -297,6 +309,7 @@ class _$AllUsers implements AllUsers {
     required TResult Function(List<PostModel> postList) allPosts,
     required TResult Function() savedPosts,
     required TResult Function() savedUsers,
+    required TResult Function() syncFinished,
     required TResult Function(String message) error,
   }) {
     return allUsers(usersList);
@@ -310,6 +323,7 @@ class _$AllUsers implements AllUsers {
     TResult? Function(List<PostModel> postList)? allPosts,
     TResult? Function()? savedPosts,
     TResult? Function()? savedUsers,
+    TResult? Function()? syncFinished,
     TResult? Function(String message)? error,
   }) {
     return allUsers?.call(usersList);
@@ -323,6 +337,7 @@ class _$AllUsers implements AllUsers {
     TResult Function(List<PostModel> postList)? allPosts,
     TResult Function()? savedPosts,
     TResult Function()? savedUsers,
+    TResult Function()? syncFinished,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -340,6 +355,7 @@ class _$AllUsers implements AllUsers {
     required TResult Function(AllPosts value) allPosts,
     required TResult Function(_SavedPosts value) savedPosts,
     required TResult Function(_SavedUsers value) savedUsers,
+    required TResult Function(_SyncFinished value) syncFinished,
     required TResult Function(_Error value) error,
   }) {
     return allUsers(this);
@@ -353,6 +369,7 @@ class _$AllUsers implements AllUsers {
     TResult? Function(AllPosts value)? allPosts,
     TResult? Function(_SavedPosts value)? savedPosts,
     TResult? Function(_SavedUsers value)? savedUsers,
+    TResult? Function(_SyncFinished value)? syncFinished,
     TResult? Function(_Error value)? error,
   }) {
     return allUsers?.call(this);
@@ -366,6 +383,7 @@ class _$AllUsers implements AllUsers {
     TResult Function(AllPosts value)? allPosts,
     TResult Function(_SavedPosts value)? savedPosts,
     TResult Function(_SavedUsers value)? savedUsers,
+    TResult Function(_SyncFinished value)? syncFinished,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
@@ -458,6 +476,7 @@ class _$AllPosts implements AllPosts {
     required TResult Function(List<PostModel> postList) allPosts,
     required TResult Function() savedPosts,
     required TResult Function() savedUsers,
+    required TResult Function() syncFinished,
     required TResult Function(String message) error,
   }) {
     return allPosts(postList);
@@ -471,6 +490,7 @@ class _$AllPosts implements AllPosts {
     TResult? Function(List<PostModel> postList)? allPosts,
     TResult? Function()? savedPosts,
     TResult? Function()? savedUsers,
+    TResult? Function()? syncFinished,
     TResult? Function(String message)? error,
   }) {
     return allPosts?.call(postList);
@@ -484,6 +504,7 @@ class _$AllPosts implements AllPosts {
     TResult Function(List<PostModel> postList)? allPosts,
     TResult Function()? savedPosts,
     TResult Function()? savedUsers,
+    TResult Function()? syncFinished,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -501,6 +522,7 @@ class _$AllPosts implements AllPosts {
     required TResult Function(AllPosts value) allPosts,
     required TResult Function(_SavedPosts value) savedPosts,
     required TResult Function(_SavedUsers value) savedUsers,
+    required TResult Function(_SyncFinished value) syncFinished,
     required TResult Function(_Error value) error,
   }) {
     return allPosts(this);
@@ -514,6 +536,7 @@ class _$AllPosts implements AllPosts {
     TResult? Function(AllPosts value)? allPosts,
     TResult? Function(_SavedPosts value)? savedPosts,
     TResult? Function(_SavedUsers value)? savedUsers,
+    TResult? Function(_SyncFinished value)? syncFinished,
     TResult? Function(_Error value)? error,
   }) {
     return allPosts?.call(this);
@@ -527,6 +550,7 @@ class _$AllPosts implements AllPosts {
     TResult Function(AllPosts value)? allPosts,
     TResult Function(_SavedPosts value)? savedPosts,
     TResult Function(_SavedUsers value)? savedUsers,
+    TResult Function(_SyncFinished value)? syncFinished,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
@@ -589,6 +613,7 @@ class _$_SavedPosts implements _SavedPosts {
     required TResult Function(List<PostModel> postList) allPosts,
     required TResult Function() savedPosts,
     required TResult Function() savedUsers,
+    required TResult Function() syncFinished,
     required TResult Function(String message) error,
   }) {
     return savedPosts();
@@ -602,6 +627,7 @@ class _$_SavedPosts implements _SavedPosts {
     TResult? Function(List<PostModel> postList)? allPosts,
     TResult? Function()? savedPosts,
     TResult? Function()? savedUsers,
+    TResult? Function()? syncFinished,
     TResult? Function(String message)? error,
   }) {
     return savedPosts?.call();
@@ -615,6 +641,7 @@ class _$_SavedPosts implements _SavedPosts {
     TResult Function(List<PostModel> postList)? allPosts,
     TResult Function()? savedPosts,
     TResult Function()? savedUsers,
+    TResult Function()? syncFinished,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -632,6 +659,7 @@ class _$_SavedPosts implements _SavedPosts {
     required TResult Function(AllPosts value) allPosts,
     required TResult Function(_SavedPosts value) savedPosts,
     required TResult Function(_SavedUsers value) savedUsers,
+    required TResult Function(_SyncFinished value) syncFinished,
     required TResult Function(_Error value) error,
   }) {
     return savedPosts(this);
@@ -645,6 +673,7 @@ class _$_SavedPosts implements _SavedPosts {
     TResult? Function(AllPosts value)? allPosts,
     TResult? Function(_SavedPosts value)? savedPosts,
     TResult? Function(_SavedUsers value)? savedUsers,
+    TResult? Function(_SyncFinished value)? syncFinished,
     TResult? Function(_Error value)? error,
   }) {
     return savedPosts?.call(this);
@@ -658,6 +687,7 @@ class _$_SavedPosts implements _SavedPosts {
     TResult Function(AllPosts value)? allPosts,
     TResult Function(_SavedPosts value)? savedPosts,
     TResult Function(_SavedUsers value)? savedUsers,
+    TResult Function(_SyncFinished value)? syncFinished,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
@@ -715,6 +745,7 @@ class _$_SavedUsers implements _SavedUsers {
     required TResult Function(List<PostModel> postList) allPosts,
     required TResult Function() savedPosts,
     required TResult Function() savedUsers,
+    required TResult Function() syncFinished,
     required TResult Function(String message) error,
   }) {
     return savedUsers();
@@ -728,6 +759,7 @@ class _$_SavedUsers implements _SavedUsers {
     TResult? Function(List<PostModel> postList)? allPosts,
     TResult? Function()? savedPosts,
     TResult? Function()? savedUsers,
+    TResult? Function()? syncFinished,
     TResult? Function(String message)? error,
   }) {
     return savedUsers?.call();
@@ -741,6 +773,7 @@ class _$_SavedUsers implements _SavedUsers {
     TResult Function(List<PostModel> postList)? allPosts,
     TResult Function()? savedPosts,
     TResult Function()? savedUsers,
+    TResult Function()? syncFinished,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -758,6 +791,7 @@ class _$_SavedUsers implements _SavedUsers {
     required TResult Function(AllPosts value) allPosts,
     required TResult Function(_SavedPosts value) savedPosts,
     required TResult Function(_SavedUsers value) savedUsers,
+    required TResult Function(_SyncFinished value) syncFinished,
     required TResult Function(_Error value) error,
   }) {
     return savedUsers(this);
@@ -771,6 +805,7 @@ class _$_SavedUsers implements _SavedUsers {
     TResult? Function(AllPosts value)? allPosts,
     TResult? Function(_SavedPosts value)? savedPosts,
     TResult? Function(_SavedUsers value)? savedUsers,
+    TResult? Function(_SyncFinished value)? syncFinished,
     TResult? Function(_Error value)? error,
   }) {
     return savedUsers?.call(this);
@@ -784,6 +819,7 @@ class _$_SavedUsers implements _SavedUsers {
     TResult Function(AllPosts value)? allPosts,
     TResult Function(_SavedPosts value)? savedPosts,
     TResult Function(_SavedUsers value)? savedUsers,
+    TResult Function(_SyncFinished value)? syncFinished,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
@@ -796,6 +832,138 @@ class _$_SavedUsers implements _SavedUsers {
 
 abstract class _SavedUsers implements UsersState {
   const factory _SavedUsers() = _$_SavedUsers;
+}
+
+/// @nodoc
+abstract class _$$_SyncFinishedCopyWith<$Res> {
+  factory _$$_SyncFinishedCopyWith(
+          _$_SyncFinished value, $Res Function(_$_SyncFinished) then) =
+      __$$_SyncFinishedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_SyncFinishedCopyWithImpl<$Res>
+    extends _$UsersStateCopyWithImpl<$Res, _$_SyncFinished>
+    implements _$$_SyncFinishedCopyWith<$Res> {
+  __$$_SyncFinishedCopyWithImpl(
+      _$_SyncFinished _value, $Res Function(_$_SyncFinished) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_SyncFinished implements _SyncFinished {
+  const _$_SyncFinished();
+
+  @override
+  String toString() {
+    return 'UsersState.syncFinished()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_SyncFinished);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loading,
+    required TResult Function(List<UserModel> usersList) allUsers,
+    required TResult Function(List<PostModel> postList) allPosts,
+    required TResult Function() savedPosts,
+    required TResult Function() savedUsers,
+    required TResult Function() syncFinished,
+    required TResult Function(String message) error,
+  }) {
+    return syncFinished();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loading,
+    TResult? Function(List<UserModel> usersList)? allUsers,
+    TResult? Function(List<PostModel> postList)? allPosts,
+    TResult? Function()? savedPosts,
+    TResult? Function()? savedUsers,
+    TResult? Function()? syncFinished,
+    TResult? Function(String message)? error,
+  }) {
+    return syncFinished?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loading,
+    TResult Function(List<UserModel> usersList)? allUsers,
+    TResult Function(List<PostModel> postList)? allPosts,
+    TResult Function()? savedPosts,
+    TResult Function()? savedUsers,
+    TResult Function()? syncFinished,
+    TResult Function(String message)? error,
+    required TResult orElse(),
+  }) {
+    if (syncFinished != null) {
+      return syncFinished();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Loading value) loading,
+    required TResult Function(AllUsers value) allUsers,
+    required TResult Function(AllPosts value) allPosts,
+    required TResult Function(_SavedPosts value) savedPosts,
+    required TResult Function(_SavedUsers value) savedUsers,
+    required TResult Function(_SyncFinished value) syncFinished,
+    required TResult Function(_Error value) error,
+  }) {
+    return syncFinished(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(AllUsers value)? allUsers,
+    TResult? Function(AllPosts value)? allPosts,
+    TResult? Function(_SavedPosts value)? savedPosts,
+    TResult? Function(_SavedUsers value)? savedUsers,
+    TResult? Function(_SyncFinished value)? syncFinished,
+    TResult? Function(_Error value)? error,
+  }) {
+    return syncFinished?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Loading value)? loading,
+    TResult Function(AllUsers value)? allUsers,
+    TResult Function(AllPosts value)? allPosts,
+    TResult Function(_SavedPosts value)? savedPosts,
+    TResult Function(_SavedUsers value)? savedUsers,
+    TResult Function(_SyncFinished value)? syncFinished,
+    TResult Function(_Error value)? error,
+    required TResult orElse(),
+  }) {
+    if (syncFinished != null) {
+      return syncFinished(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SyncFinished implements UsersState {
+  const factory _SyncFinished() = _$_SyncFinished;
 }
 
 /// @nodoc
@@ -865,6 +1033,7 @@ class _$_Error implements _Error {
     required TResult Function(List<PostModel> postList) allPosts,
     required TResult Function() savedPosts,
     required TResult Function() savedUsers,
+    required TResult Function() syncFinished,
     required TResult Function(String message) error,
   }) {
     return error(message);
@@ -878,6 +1047,7 @@ class _$_Error implements _Error {
     TResult? Function(List<PostModel> postList)? allPosts,
     TResult? Function()? savedPosts,
     TResult? Function()? savedUsers,
+    TResult? Function()? syncFinished,
     TResult? Function(String message)? error,
   }) {
     return error?.call(message);
@@ -891,6 +1061,7 @@ class _$_Error implements _Error {
     TResult Function(List<PostModel> postList)? allPosts,
     TResult Function()? savedPosts,
     TResult Function()? savedUsers,
+    TResult Function()? syncFinished,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -908,6 +1079,7 @@ class _$_Error implements _Error {
     required TResult Function(AllPosts value) allPosts,
     required TResult Function(_SavedPosts value) savedPosts,
     required TResult Function(_SavedUsers value) savedUsers,
+    required TResult Function(_SyncFinished value) syncFinished,
     required TResult Function(_Error value) error,
   }) {
     return error(this);
@@ -921,6 +1093,7 @@ class _$_Error implements _Error {
     TResult? Function(AllPosts value)? allPosts,
     TResult? Function(_SavedPosts value)? savedPosts,
     TResult? Function(_SavedUsers value)? savedUsers,
+    TResult? Function(_SyncFinished value)? syncFinished,
     TResult? Function(_Error value)? error,
   }) {
     return error?.call(this);
@@ -934,6 +1107,7 @@ class _$_Error implements _Error {
     TResult Function(AllPosts value)? allPosts,
     TResult Function(_SavedPosts value)? savedPosts,
     TResult Function(_SavedUsers value)? savedUsers,
+    TResult Function(_SyncFinished value)? syncFinished,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {

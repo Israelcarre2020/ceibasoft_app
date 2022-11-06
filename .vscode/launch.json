@@ -8,21 +8,21 @@
       "name": "ceibasoft_app",
       "request": "launch",
       "type": "dart",
-      "args": ["--no-sound-null-safety"]
+      "args": [""]
     },
     {
       "name": "ceibasoft_app (profile mode)",
       "request": "launch",
       "type": "dart",
       "flutterMode": "profile",
-      "args": ["--no-sound-null-safety"]
+      "args": [""]
     },
     {
       "name": "ceibasoft_app (release mode)",
       "request": "launch",
       "type": "dart",
       "flutterMode": "release",
-      "args": ["--no-sound-null-safety"]
+      "args": [""]
     }
   ]
 }
