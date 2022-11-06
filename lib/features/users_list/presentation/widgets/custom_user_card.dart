@@ -23,9 +23,13 @@ class CustomUserCard extends StatelessWidget {
             children: [
               SizedBox(
                   width: double.infinity,
-                  child: Text(user.name,
-                      style: theme.textTheme.button!
-                          .copyWith(color: AppColorsTheme.secondary))),
+                  child: Text(
+                    user.name,
+                    style: theme.textTheme.button!
+                        .copyWith(color: AppColorsTheme.secondary),
+                    textAlign:
+                        onPress != null ? TextAlign.start : TextAlign.center,
+                  )),
               _userDataWithIcon(user.phone, Icons.phone, theme),
               _userDataWithIcon(user.email, Icons.mail, theme),
               Row(
@@ -49,6 +53,8 @@ class CustomUserCard extends StatelessWidget {
 
   Widget _userDataWithIcon(String data, IconData icon, ThemeData theme) {
     return Row(
+      mainAxisAlignment:
+          onPress != null ? MainAxisAlignment.start : MainAxisAlignment.center,
       children: [
         Icon(
           icon,

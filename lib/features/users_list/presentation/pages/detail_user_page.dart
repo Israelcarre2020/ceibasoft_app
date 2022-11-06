@@ -15,7 +15,7 @@ class DetailUserPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Scaffold(
-      appBar: AppBar(centerTitle: true, title: const Text('Detail user')),
+      appBar: AppBar(centerTitle: true, title: Text(user.name)),
       body: Column(
         children: [
           CustomUserCard(user: user),
