@@ -1,7 +1,4 @@
 import 'package:ceibasoft_app/features/users_list/domain/entities/post_model.dart';
-import 'package:ceibasoft_app/features/users_list/domain/entities/user_model.dart';
-import 'package:ceibasoft_app/features/users_list/domain/use_cases/get_all_post_remote_use_case.dart';
-import 'package:ceibasoft_app/features/users_list/domain/use_cases/get_all_posts_local_bd_use_case.dart';
 import 'package:ceibasoft_app/features/users_list/domain/use_cases/save_posts_local_db_use_case.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';

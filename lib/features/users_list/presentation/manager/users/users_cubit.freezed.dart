@@ -20,6 +20,9 @@ mixin _$UsersState {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function(List<UserModel> usersList) allUsers,
+    required TResult Function(List<PostModel> postList) allPosts,
+    required TResult Function() savedPosts,
+    required TResult Function() savedUsers,
     required TResult Function(String message) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -27,6 +30,9 @@ mixin _$UsersState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
     TResult? Function(List<UserModel> usersList)? allUsers,
+    TResult? Function(List<PostModel> postList)? allPosts,
+    TResult? Function()? savedPosts,
+    TResult? Function()? savedUsers,
     TResult? Function(String message)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -34,6 +40,9 @@ mixin _$UsersState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function(List<UserModel> usersList)? allUsers,
+    TResult Function(List<PostModel> postList)? allPosts,
+    TResult Function()? savedPosts,
+    TResult Function()? savedUsers,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) =>
@@ -42,6 +51,9 @@ mixin _$UsersState {
   TResult map<TResult extends Object?>({
     required TResult Function(_Loading value) loading,
     required TResult Function(AllUsers value) allUsers,
+    required TResult Function(AllPosts value) allPosts,
+    required TResult Function(_SavedPosts value) savedPosts,
+    required TResult Function(_SavedUsers value) savedUsers,
     required TResult Function(_Error value) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -49,6 +61,9 @@ mixin _$UsersState {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Loading value)? loading,
     TResult? Function(AllUsers value)? allUsers,
+    TResult? Function(AllPosts value)? allPosts,
+    TResult? Function(_SavedPosts value)? savedPosts,
+    TResult? Function(_SavedUsers value)? savedUsers,
     TResult? Function(_Error value)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -56,6 +71,9 @@ mixin _$UsersState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Loading value)? loading,
     TResult Function(AllUsers value)? allUsers,
+    TResult Function(AllPosts value)? allPosts,
+    TResult Function(_SavedPosts value)? savedPosts,
+    TResult Function(_SavedUsers value)? savedUsers,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) =>
@@ -119,6 +137,9 @@ class _$_Loading implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function(List<UserModel> usersList) allUsers,
+    required TResult Function(List<PostModel> postList) allPosts,
+    required TResult Function() savedPosts,
+    required TResult Function() savedUsers,
     required TResult Function(String message) error,
   }) {
     return loading();
@@ -129,6 +150,9 @@ class _$_Loading implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
     TResult? Function(List<UserModel> usersList)? allUsers,
+    TResult? Function(List<PostModel> postList)? allPosts,
+    TResult? Function()? savedPosts,
+    TResult? Function()? savedUsers,
     TResult? Function(String message)? error,
   }) {
     return loading?.call();
@@ -139,6 +163,9 @@ class _$_Loading implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function(List<UserModel> usersList)? allUsers,
+    TResult Function(List<PostModel> postList)? allPosts,
+    TResult Function()? savedPosts,
+    TResult Function()? savedUsers,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -153,6 +180,9 @@ class _$_Loading implements _Loading {
   TResult map<TResult extends Object?>({
     required TResult Function(_Loading value) loading,
     required TResult Function(AllUsers value) allUsers,
+    required TResult Function(AllPosts value) allPosts,
+    required TResult Function(_SavedPosts value) savedPosts,
+    required TResult Function(_SavedUsers value) savedUsers,
     required TResult Function(_Error value) error,
   }) {
     return loading(this);
@@ -163,6 +193,9 @@ class _$_Loading implements _Loading {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Loading value)? loading,
     TResult? Function(AllUsers value)? allUsers,
+    TResult? Function(AllPosts value)? allPosts,
+    TResult? Function(_SavedPosts value)? savedPosts,
+    TResult? Function(_SavedUsers value)? savedUsers,
     TResult? Function(_Error value)? error,
   }) {
     return loading?.call(this);
@@ -173,6 +206,9 @@ class _$_Loading implements _Loading {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Loading value)? loading,
     TResult Function(AllUsers value)? allUsers,
+    TResult Function(AllPosts value)? allPosts,
+    TResult Function(_SavedPosts value)? savedPosts,
+    TResult Function(_SavedUsers value)? savedUsers,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
@@ -258,6 +294,9 @@ class _$AllUsers implements AllUsers {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function(List<UserModel> usersList) allUsers,
+    required TResult Function(List<PostModel> postList) allPosts,
+    required TResult Function() savedPosts,
+    required TResult Function() savedUsers,
     required TResult Function(String message) error,
   }) {
     return allUsers(usersList);
@@ -268,6 +307,9 @@ class _$AllUsers implements AllUsers {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
     TResult? Function(List<UserModel> usersList)? allUsers,
+    TResult? Function(List<PostModel> postList)? allPosts,
+    TResult? Function()? savedPosts,
+    TResult? Function()? savedUsers,
     TResult? Function(String message)? error,
   }) {
     return allUsers?.call(usersList);
@@ -278,6 +320,9 @@ class _$AllUsers implements AllUsers {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function(List<UserModel> usersList)? allUsers,
+    TResult Function(List<PostModel> postList)? allPosts,
+    TResult Function()? savedPosts,
+    TResult Function()? savedUsers,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -292,6 +337,9 @@ class _$AllUsers implements AllUsers {
   TResult map<TResult extends Object?>({
     required TResult Function(_Loading value) loading,
     required TResult Function(AllUsers value) allUsers,
+    required TResult Function(AllPosts value) allPosts,
+    required TResult Function(_SavedPosts value) savedPosts,
+    required TResult Function(_SavedUsers value) savedUsers,
     required TResult Function(_Error value) error,
   }) {
     return allUsers(this);
@@ -302,6 +350,9 @@ class _$AllUsers implements AllUsers {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Loading value)? loading,
     TResult? Function(AllUsers value)? allUsers,
+    TResult? Function(AllPosts value)? allPosts,
+    TResult? Function(_SavedPosts value)? savedPosts,
+    TResult? Function(_SavedUsers value)? savedUsers,
     TResult? Function(_Error value)? error,
   }) {
     return allUsers?.call(this);
@@ -312,6 +363,9 @@ class _$AllUsers implements AllUsers {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Loading value)? loading,
     TResult Function(AllUsers value)? allUsers,
+    TResult Function(AllPosts value)? allPosts,
+    TResult Function(_SavedPosts value)? savedPosts,
+    TResult Function(_SavedUsers value)? savedUsers,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {
@@ -329,6 +383,419 @@ abstract class AllUsers implements UsersState {
   @JsonKey(ignore: true)
   _$$AllUsersCopyWith<_$AllUsers> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$AllPostsCopyWith<$Res> {
+  factory _$$AllPostsCopyWith(
+          _$AllPosts value, $Res Function(_$AllPosts) then) =
+      __$$AllPostsCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<PostModel> postList});
+}
+
+/// @nodoc
+class __$$AllPostsCopyWithImpl<$Res>
+    extends _$UsersStateCopyWithImpl<$Res, _$AllPosts>
+    implements _$$AllPostsCopyWith<$Res> {
+  __$$AllPostsCopyWithImpl(_$AllPosts _value, $Res Function(_$AllPosts) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? postList = null,
+  }) {
+    return _then(_$AllPosts(
+      null == postList
+          ? _value._postList
+          : postList // ignore: cast_nullable_to_non_nullable
+              as List<PostModel>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$AllPosts implements AllPosts {
+  const _$AllPosts(final List<PostModel> postList) : _postList = postList;
+
+  final List<PostModel> _postList;
+  @override
+  List<PostModel> get postList {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_postList);
+  }
+
+  @override
+  String toString() {
+    return 'UsersState.allPosts(postList: $postList)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AllPosts &&
+            const DeepCollectionEquality().equals(other._postList, _postList));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_postList));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AllPostsCopyWith<_$AllPosts> get copyWith =>
+      __$$AllPostsCopyWithImpl<_$AllPosts>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loading,
+    required TResult Function(List<UserModel> usersList) allUsers,
+    required TResult Function(List<PostModel> postList) allPosts,
+    required TResult Function() savedPosts,
+    required TResult Function() savedUsers,
+    required TResult Function(String message) error,
+  }) {
+    return allPosts(postList);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loading,
+    TResult? Function(List<UserModel> usersList)? allUsers,
+    TResult? Function(List<PostModel> postList)? allPosts,
+    TResult? Function()? savedPosts,
+    TResult? Function()? savedUsers,
+    TResult? Function(String message)? error,
+  }) {
+    return allPosts?.call(postList);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loading,
+    TResult Function(List<UserModel> usersList)? allUsers,
+    TResult Function(List<PostModel> postList)? allPosts,
+    TResult Function()? savedPosts,
+    TResult Function()? savedUsers,
+    TResult Function(String message)? error,
+    required TResult orElse(),
+  }) {
+    if (allPosts != null) {
+      return allPosts(postList);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Loading value) loading,
+    required TResult Function(AllUsers value) allUsers,
+    required TResult Function(AllPosts value) allPosts,
+    required TResult Function(_SavedPosts value) savedPosts,
+    required TResult Function(_SavedUsers value) savedUsers,
+    required TResult Function(_Error value) error,
+  }) {
+    return allPosts(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(AllUsers value)? allUsers,
+    TResult? Function(AllPosts value)? allPosts,
+    TResult? Function(_SavedPosts value)? savedPosts,
+    TResult? Function(_SavedUsers value)? savedUsers,
+    TResult? Function(_Error value)? error,
+  }) {
+    return allPosts?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Loading value)? loading,
+    TResult Function(AllUsers value)? allUsers,
+    TResult Function(AllPosts value)? allPosts,
+    TResult Function(_SavedPosts value)? savedPosts,
+    TResult Function(_SavedUsers value)? savedUsers,
+    TResult Function(_Error value)? error,
+    required TResult orElse(),
+  }) {
+    if (allPosts != null) {
+      return allPosts(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AllPosts implements UsersState {
+  const factory AllPosts(final List<PostModel> postList) = _$AllPosts;
+
+  List<PostModel> get postList;
+  @JsonKey(ignore: true)
+  _$$AllPostsCopyWith<_$AllPosts> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_SavedPostsCopyWith<$Res> {
+  factory _$$_SavedPostsCopyWith(
+          _$_SavedPosts value, $Res Function(_$_SavedPosts) then) =
+      __$$_SavedPostsCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_SavedPostsCopyWithImpl<$Res>
+    extends _$UsersStateCopyWithImpl<$Res, _$_SavedPosts>
+    implements _$$_SavedPostsCopyWith<$Res> {
+  __$$_SavedPostsCopyWithImpl(
+      _$_SavedPosts _value, $Res Function(_$_SavedPosts) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_SavedPosts implements _SavedPosts {
+  const _$_SavedPosts();
+
+  @override
+  String toString() {
+    return 'UsersState.savedPosts()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_SavedPosts);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loading,
+    required TResult Function(List<UserModel> usersList) allUsers,
+    required TResult Function(List<PostModel> postList) allPosts,
+    required TResult Function() savedPosts,
+    required TResult Function() savedUsers,
+    required TResult Function(String message) error,
+  }) {
+    return savedPosts();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loading,
+    TResult? Function(List<UserModel> usersList)? allUsers,
+    TResult? Function(List<PostModel> postList)? allPosts,
+    TResult? Function()? savedPosts,
+    TResult? Function()? savedUsers,
+    TResult? Function(String message)? error,
+  }) {
+    return savedPosts?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loading,
+    TResult Function(List<UserModel> usersList)? allUsers,
+    TResult Function(List<PostModel> postList)? allPosts,
+    TResult Function()? savedPosts,
+    TResult Function()? savedUsers,
+    TResult Function(String message)? error,
+    required TResult orElse(),
+  }) {
+    if (savedPosts != null) {
+      return savedPosts();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Loading value) loading,
+    required TResult Function(AllUsers value) allUsers,
+    required TResult Function(AllPosts value) allPosts,
+    required TResult Function(_SavedPosts value) savedPosts,
+    required TResult Function(_SavedUsers value) savedUsers,
+    required TResult Function(_Error value) error,
+  }) {
+    return savedPosts(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(AllUsers value)? allUsers,
+    TResult? Function(AllPosts value)? allPosts,
+    TResult? Function(_SavedPosts value)? savedPosts,
+    TResult? Function(_SavedUsers value)? savedUsers,
+    TResult? Function(_Error value)? error,
+  }) {
+    return savedPosts?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Loading value)? loading,
+    TResult Function(AllUsers value)? allUsers,
+    TResult Function(AllPosts value)? allPosts,
+    TResult Function(_SavedPosts value)? savedPosts,
+    TResult Function(_SavedUsers value)? savedUsers,
+    TResult Function(_Error value)? error,
+    required TResult orElse(),
+  }) {
+    if (savedPosts != null) {
+      return savedPosts(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SavedPosts implements UsersState {
+  const factory _SavedPosts() = _$_SavedPosts;
+}
+
+/// @nodoc
+abstract class _$$_SavedUsersCopyWith<$Res> {
+  factory _$$_SavedUsersCopyWith(
+          _$_SavedUsers value, $Res Function(_$_SavedUsers) then) =
+      __$$_SavedUsersCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_SavedUsersCopyWithImpl<$Res>
+    extends _$UsersStateCopyWithImpl<$Res, _$_SavedUsers>
+    implements _$$_SavedUsersCopyWith<$Res> {
+  __$$_SavedUsersCopyWithImpl(
+      _$_SavedUsers _value, $Res Function(_$_SavedUsers) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_SavedUsers implements _SavedUsers {
+  const _$_SavedUsers();
+
+  @override
+  String toString() {
+    return 'UsersState.savedUsers()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_SavedUsers);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loading,
+    required TResult Function(List<UserModel> usersList) allUsers,
+    required TResult Function(List<PostModel> postList) allPosts,
+    required TResult Function() savedPosts,
+    required TResult Function() savedUsers,
+    required TResult Function(String message) error,
+  }) {
+    return savedUsers();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loading,
+    TResult? Function(List<UserModel> usersList)? allUsers,
+    TResult? Function(List<PostModel> postList)? allPosts,
+    TResult? Function()? savedPosts,
+    TResult? Function()? savedUsers,
+    TResult? Function(String message)? error,
+  }) {
+    return savedUsers?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loading,
+    TResult Function(List<UserModel> usersList)? allUsers,
+    TResult Function(List<PostModel> postList)? allPosts,
+    TResult Function()? savedPosts,
+    TResult Function()? savedUsers,
+    TResult Function(String message)? error,
+    required TResult orElse(),
+  }) {
+    if (savedUsers != null) {
+      return savedUsers();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Loading value) loading,
+    required TResult Function(AllUsers value) allUsers,
+    required TResult Function(AllPosts value) allPosts,
+    required TResult Function(_SavedPosts value) savedPosts,
+    required TResult Function(_SavedUsers value) savedUsers,
+    required TResult Function(_Error value) error,
+  }) {
+    return savedUsers(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(AllUsers value)? allUsers,
+    TResult? Function(AllPosts value)? allPosts,
+    TResult? Function(_SavedPosts value)? savedPosts,
+    TResult? Function(_SavedUsers value)? savedUsers,
+    TResult? Function(_Error value)? error,
+  }) {
+    return savedUsers?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Loading value)? loading,
+    TResult Function(AllUsers value)? allUsers,
+    TResult Function(AllPosts value)? allPosts,
+    TResult Function(_SavedPosts value)? savedPosts,
+    TResult Function(_SavedUsers value)? savedUsers,
+    TResult Function(_Error value)? error,
+    required TResult orElse(),
+  }) {
+    if (savedUsers != null) {
+      return savedUsers(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SavedUsers implements UsersState {
+  const factory _SavedUsers() = _$_SavedUsers;
 }
 
 /// @nodoc
@@ -395,6 +862,9 @@ class _$_Error implements _Error {
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
     required TResult Function(List<UserModel> usersList) allUsers,
+    required TResult Function(List<PostModel> postList) allPosts,
+    required TResult Function() savedPosts,
+    required TResult Function() savedUsers,
     required TResult Function(String message) error,
   }) {
     return error(message);
@@ -405,6 +875,9 @@ class _$_Error implements _Error {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
     TResult? Function(List<UserModel> usersList)? allUsers,
+    TResult? Function(List<PostModel> postList)? allPosts,
+    TResult? Function()? savedPosts,
+    TResult? Function()? savedUsers,
     TResult? Function(String message)? error,
   }) {
     return error?.call(message);
@@ -415,6 +888,9 @@ class _$_Error implements _Error {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function(List<UserModel> usersList)? allUsers,
+    TResult Function(List<PostModel> postList)? allPosts,
+    TResult Function()? savedPosts,
+    TResult Function()? savedUsers,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -429,6 +905,9 @@ class _$_Error implements _Error {
   TResult map<TResult extends Object?>({
     required TResult Function(_Loading value) loading,
     required TResult Function(AllUsers value) allUsers,
+    required TResult Function(AllPosts value) allPosts,
+    required TResult Function(_SavedPosts value) savedPosts,
+    required TResult Function(_SavedUsers value) savedUsers,
     required TResult Function(_Error value) error,
   }) {
     return error(this);
@@ -439,6 +918,9 @@ class _$_Error implements _Error {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Loading value)? loading,
     TResult? Function(AllUsers value)? allUsers,
+    TResult? Function(AllPosts value)? allPosts,
+    TResult? Function(_SavedPosts value)? savedPosts,
+    TResult? Function(_SavedUsers value)? savedUsers,
     TResult? Function(_Error value)? error,
   }) {
     return error?.call(this);
@@ -449,6 +931,9 @@ class _$_Error implements _Error {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Loading value)? loading,
     TResult Function(AllUsers value)? allUsers,
+    TResult Function(AllPosts value)? allPosts,
+    TResult Function(_SavedPosts value)? savedPosts,
+    TResult Function(_SavedUsers value)? savedUsers,
     TResult Function(_Error value)? error,
     required TResult orElse(),
   }) {

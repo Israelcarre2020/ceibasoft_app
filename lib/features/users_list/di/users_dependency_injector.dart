@@ -1,5 +1,3 @@
-import 'package:sembast/sembast.dart';
-
 import '../../../core/config/remote_api_constants.dart';
 import '../../../core/db/init_local_db.dart';
 import '../../../core/db/stores_db.dart';
