@@ -71,40 +71,7 @@ class _UsersListPageViewState extends State<UsersListPageView> {
           );
         }, builder: (_, state) {
           return state.maybeWhen(allUsers: (usersList) {
-            return Column(
-              children: [
-                searchField(usersList, context),
-                if (usersList.isEmpty)
-                  Container(
-                      margin: const EdgeInsets.only(top: 30),
-                      child: Column(
-                        children: [
-                          Text(
-                            'List is empty',
-                            style: theme.textTheme.caption,
-                          ),
-                          const Icon(Icons.data_array)
-                        ],
-                      ))
-                else
-                  Expanded(
-                    child: ListView.builder(
-                        itemCount: usersList.length,
-                        itemBuilder: (context, index) {
-                          return CustomUserCard(
-                            user: usersList[index],
-                            onPress: (userId) {
-                              final userPosts = context
-                                  .read<UsersCubit>()
-                                  .getUserPosts(userId);
-
-                              _goToUserDetails(userPosts, usersList[index]);
-                            },
-                          );
-                        }),
-                  )
-              ],
-            );
+            return _body(usersList, theme);
           }, loading: () {
             return const Center(
               child: CircularProgressIndicator(),
@@ -112,9 +79,45 @@ class _UsersListPageViewState extends State<UsersListPageView> {
           }, error: (error) {
             return _loadButton(context);
           }, orElse: () {
-            return _loadButton(context);
+            return _body(context.read<UsersCubit>().allUsers, theme);
           });
         }));
+  }
+
+  Widget _body(List<UserModel> usersList, ThemeData theme) {
+    return Column(
+      children: [
+        searchField(usersList, context),
+        if (usersList.isEmpty)
+          Container(
+              margin: const EdgeInsets.only(top: 30),
+              child: Column(
+                children: [
+                  Text(
+                    'List is empty',
+                    style: theme.textTheme.caption,
+                  ),
+                  const Icon(Icons.data_array)
+                ],
+              ))
+        else
+          Expanded(
+            child: ListView.builder(
+                itemCount: usersList.length,
+                itemBuilder: (context, index) {
+                  return CustomUserCard(
+                    user: usersList[index],
+                    onPress: (userId) {
+                      final userPosts =
+                          context.read<UsersCubit>().getUserPosts(userId);
+
+                      _goToUserDetails(userPosts, usersList[index]);
+                    },
+                  );
+                }),
+          )
+      ],
+    );
   }
 
   Future<void> _goToUserDetails(
